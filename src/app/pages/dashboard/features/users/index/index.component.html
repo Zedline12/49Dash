@@ -1,0 +1,13 @@
+<div class="container-fluid shadow">
+  <search
+    class="mt-5"
+    [items]="UserServ.users"
+    [keys]="searchKeys"
+    (filteredItems)="onFilter($event)"
+  ></search>
+  <div style="max-width: 60em !important" class="container">
+    @for (user of filteredUsers ; track user; let i = $index) {
+    <user-card style="margin: 10px !important" [user]="user"></user-card>
+    }
+  </div>
+</div>

@@ -1,0 +1,13 @@
+@import "global";
+.label {
+  color: white;
+}
+.btn {
+  background-color: $secondary !important;
+  color: white !important;
+  padding: 0.5em 1.5em 0.5em 1.5em;
+  font-size: 1em !important;
+}
+.app-container {
+  background-color: $primary;
+}

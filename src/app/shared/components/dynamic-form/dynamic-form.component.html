@@ -1,0 +1,33 @@
+<form #myform="ngForm" (ngSubmit)="onFormSubmit(myform)">
+  <div class="container-fluid app-container">
+    <div
+      class="row d-flex justify-content-center"
+      style="max-height: 30em; overflow-y: auto"
+    >
+      @for (item of entries; track item; let i = $index) {
+
+      <div class="col-xl-3 col-md-4 col-6 col-12">
+        <div class="row">
+          <label class="label" for="name">{{ item[0] | beauty }}:</label>
+        </div>
+        <input
+          type="text"
+          id="name"
+          name="{{ item[0] }}"
+          ngModel
+          required
+          [(ngModel)]="item[1]"
+        />
+      </div>
+      }
+    </div>
+  </div>
+  <button
+    class="btn d-flex justify-content-center mt-5"
+    style="margin: auto; margin-top: 2em"
+    mat-raised-button
+    type="submit"
+  >
+    submit
+  </button>
+</form>

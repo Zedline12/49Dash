@@ -1,0 +1,42 @@
+<div class="col-12 shadow">
+  <div class="row d-flex justify-content-xl-left justify-content-center">
+    <div
+      class="col-xl-3 col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-left-sm justify-content-center"
+    >
+      <img class="proflePic" src="assets/images/profile.jpeg" />
+    </div>
+    <div
+      class="col-sm-6 col-12 d-md-none d-block d-flex align-items-center justify-content-sm-center justify-content-center"
+    >
+      <h5 class="name">{{ user.first_name }} {{ user.last_name }}</h5>
+    </div>
+    <div class="col-xl-9 col-md-8 col-12 d-flex align-items-center">
+      <div style="width: 110%" class="row">
+        <div
+          class="col-xl-4 d-md-flex d-none col-6 align-items-center justify-content-center"
+        >
+          <h5 class="name">{{ user.first_name }} {{ user.last_name }}</h5>
+        </div>
+        <div
+          class="phone-column col-xl-4 col-md-6 col-12 d-flex align-items-center justify-content-md-right justify-content-center"
+        >
+          <h5 class="phone">
+            <i
+              style="margin-right: 10px; font-size: 0.8em"
+              class="bi bi-telephone-fill"
+            ></i
+            >01099772095
+          </h5>
+        </div>
+        <div
+          class="email-column col-xl-4 col-12 d-flex align-items-center justify-content-center"
+        >
+          <h5 class="email">
+            <i style="margin-right: 10px" class="bi bi-envelope-fill"></i
+            >{{ user.email }}
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
