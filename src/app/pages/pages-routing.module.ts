@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: dashboard,
-    //  canActivate: [AuthGuard],
+     canActivate: [AuthGuard],
   },
 ];
 

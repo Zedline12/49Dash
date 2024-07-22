@@ -5,7 +5,7 @@ const serverUrl: string = environment.serverUrl;
 export const apiEndPoints = {
   auth: {
     login: `${serverUrl}/auth/login`,
-    tokenValidation: `${serverUrl}/auth/dashboard/token-validation`,
+    tokenValidation: `${serverUrl}/auth/check-token`,
     refreshToken: `${serverUrl}/auth/refresh/token`,
   },
   appManger: {
