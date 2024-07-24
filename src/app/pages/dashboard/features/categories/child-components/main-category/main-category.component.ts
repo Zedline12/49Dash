@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { CategoriesService } from '../../../../../../core/services/features/categories.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { mainSubCategoriesModel } from 'app/core/models/categories/mainSubCategories.model';
+import { CategoriesService } from 'app/core/services/features/categories.service';
 
 @Component({
   selector: 'main-category',
@@ -7,14 +8,20 @@ import { CategoriesService } from '../../../../../../core/services/features/cate
   styleUrl: './main-category.component.scss',
 })
 export class MainCategoryComponent implements OnInit {
-  constructor(public mainserv: CategoriesService.MainCategoryService) {}
+  @Input() mainCategory!: mainSubCategoriesModel;
+  showSubCategories: boolean = true;
+  constructor(private service:CategoriesService.MainCategoryService) {}
   ngOnInit(): void {
-    this.mainserv.getAllMainCategoriesService();
-    this.mainserv.MainCategories.subscribe((res) => {
-      console.log(res);
-    });
+    console.log(this.mainCategory);
   }
-  onSubmit(form: any) {
-    console.log(form);
+  onSubmit(form:any) {
+    form.value._id = this.mainCategory._id
+    this.service.updateMainCategoryService(form.value)
+  }
+  checkIsHidden(value: any) {
+    console.log(value);
+  }
+  toggleSubCategories() {
+    this.showSubCategories = !this.showSubCategories;
   }
 }

@@ -1,2 +1,10 @@
-<main-category></main-category>
-<sub-category></sub-category>
+<h1 class="mt-3 mb-3">Main Categories</h1>
+<div class="shadow" style="max-height: 50em; overflow-y: auto">
+  @for(mainCategory of mainserv.MainCategories | async ;track mainCategory;let i
+  = $index){
+  <main-category
+    style="margin-top: 10px"
+    [mainCategory]="mainCategory"
+  ></main-category>
+  }
+</div>

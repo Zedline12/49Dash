@@ -20,7 +20,7 @@ import { HttpRequestInterceptor } from './core/interceptors/http-request.interce
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AuthModule } from './pages/auth/auth.module';
-import { SharedModule } from './shared/module/shared/shared.module';
+import { SharedModule } from './shared/shared.module';
 import { AuthGuard } from './core/guards/auth.guard';
 import { CoreModule } from './core/core.module';
 import { FeaturesModule } from './pages/dashboard/features/features.module';
@@ -36,7 +36,7 @@ import { InputComponent } from './shared/components/input/input.component';
     BrowserModule,
     BrowserAnimationsModule,
     CoreModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   exports: [BrowserModule, BrowserAnimationsModule],
   providers: [AuthGuard],

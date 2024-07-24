@@ -6,7 +6,7 @@ import { AppMangerComponent } from './appManger/appMangercomponent';
 import { CoreModule } from '../../../core/core.module';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { SharedModule } from '../../../shared/module/shared/shared.module';
+import { SharedModule } from '../../../shared/shared.module';
 import { IndexComponent } from './index/index.component';
 
 @NgModule({

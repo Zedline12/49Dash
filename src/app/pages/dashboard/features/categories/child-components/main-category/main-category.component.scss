@@ -1,0 +1,27 @@
+@import "global";
+.banner {
+  width: 30%;
+}
+h3,
+label {
+  color: white;
+}
+.con {
+  background-color: $primary;
+}
+.primary {
+  background-color: $primary;
+}
+.form-group {
+  position: relative;
+  .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: black;
+    font-weight: 700;
+  }
+  a {
+    color: lighten(black, 50%);
+  }
+}

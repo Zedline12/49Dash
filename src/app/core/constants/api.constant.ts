@@ -17,10 +17,12 @@ export const apiEndPoints = {
   },
   categories: {
     mainCategories: {
-      getallMainCategories: `${serverUrl}/categories/main`,
+      getallMainCategories: `${serverUrl}/categories/main/nested-subcategories`,
+      updateMainCategory:`${serverUrl}/categories/main`
     },
     subCategories: {
       getallSubCategories: `${serverUrl}/categories/subcategories`,
+      updateSubCategory: `${serverUrl}/categories/subcategories`,
     },
   },
 };

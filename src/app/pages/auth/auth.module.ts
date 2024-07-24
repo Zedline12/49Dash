@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../core/services/core/auth.service';
 
-import { SharedModule } from '../../shared/module/shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({

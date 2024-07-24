@@ -11,11 +11,18 @@ import { EventEmitter } from '@angular/core';
 })
 export class DynamicFormComponent implements OnInit {
   @Input() entries: [string, any][] = [];
+  @Input() labelStyle: any = {};
+  @Input() backgroundColor: string = 'primary';
   @Output() onSubmit: EventEmitter<any> = new EventEmitter();
   constructor() {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+   
+  }
   onFormSubmit(form: NgForm): void {
     this.onSubmit.emit(form.value);
+  }
+  itemType(item: any) {
+    return typeof item;
   }
   getChangedProperties(form: any) {
     const formEnteries = Object.entries(form.value);

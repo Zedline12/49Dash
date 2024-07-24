@@ -1,5 +1,7 @@
 <h1 class="mt-3 mb-3">App Manger</h1>
 <app-dynamic-form
+  class="primary"
   (onSubmit)="onSubmit($event)"
   [entries]="appMangerServ.AppManger | async | entites"
+  [backgroundColor]="'primary'"
 ></app-dynamic-form>

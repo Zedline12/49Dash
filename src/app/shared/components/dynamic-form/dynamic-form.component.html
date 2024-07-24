@@ -1,15 +1,21 @@
-<form #myform="ngForm" (ngSubmit)="onFormSubmit(myform)">
-  <div class="container-fluid app-container">
+<form *ngIf="entries" #myform="ngForm" (ngSubmit)="onFormSubmit(myform)">
+  <div
+    class="container-fluid app-container"
+    [ngClass]="{ primary: backgroundColor === 'primary' }"
+  >
     <div
-      class="row d-flex justify-content-center"
-      style="max-height: 30em; overflow-y: auto"
+      class="row row-cols-xl-4 row-cols-md-3 row-cols-sm-2 row-cols-1 d-flex justify-content-center"
+      style="max-height: 30em; overflow-y: auto; overflow-x: hidden"
     >
       @for (item of entries; track item; let i = $index) {
 
-      <div class="col-xl-3 col-md-4 col-6 col-12">
+      <div class="col">
         <div class="row">
-          <label class="label" for="name">{{ item[0] | beauty }}:</label>
+          <label [ngStyle]="labelStyle" class="label" for="name"
+            >{{ item[0] | beauty }}:</label
+          >
         </div>
+
         <input
           type="text"
           id="name"
@@ -19,15 +25,26 @@
           [(ngModel)]="item[1]"
         />
       </div>
-      }
+      } @for (item of entries; track item; let i = $index) {
+      @if(itemType(item[1])=="boolean"){
+      <div class="col">
+        <div class="d-flex flex-row p-3 align-items-center">
+          <label
+            [ngStyle]="{
+              color: backgroundColor == 'white' ? 'black' : 'white'
+            }"
+            for="item[0]"
+            >{{ item[0] | beauty }}</label
+          >
+          <mat-checkbox
+            name="isHidden"
+            [ngModel]="item[1]"
+          ></mat-checkbox>
+          {{ item[1] }}
+        </div>
+      </div>
+      } }
     </div>
   </div>
-  <button
-    class="btn d-flex justify-content-center mt-5"
-    style="margin: auto; margin-top: 2em"
-    mat-raised-button
-    type="submit"
-  >
-    submit
-  </button>
+  <submit-button></submit-button>
 </form>

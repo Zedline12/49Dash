@@ -13,26 +13,32 @@ import {
 import { importProvidersFrom } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpRequestInterceptor } from '../../../core/interceptors/http-request.interceptor';
+import { HttpRequestInterceptor } from '../core/interceptors/http-request.interceptor';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { TokenInterceptor } from '../../../core/interceptors/token.interceptor';
-import { SearchComponent } from '../../components/search/search.component';
+import { TokenInterceptor } from '../core/interceptors/token.interceptor';
+import { SearchComponent } from './components/search/search.component';
 import { MatInputModule } from '@angular/material/input';
-import { BeautyPipe } from '../../pipes/beauty.pipe';
-import { EntitesPipe } from '../../pipes/entites.pipe';
-import { DynamicFormComponent } from '../../components/dynamic-form/dynamic-form.component';
+import { BeautyPipe } from './pipes/beauty.pipe';
+import { EntitesPipe } from './pipes/entites.pipe';
+import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { FormsModule } from '@angular/forms';
+import { SubmitButtonComponent } from 'app/shared/components/submit-button/submit-button.component';
+import { CommonModule } from '@angular/common';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     SearchComponent,
     BeautyPipe,
     EntitesPipe,
     DynamicFormComponent,
+    SubmitButtonComponent,
   ],
   imports: [
+    CommonModule,
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
     FormsModule,
+    MatCheckboxModule,
   ],
   exports: [
     NgxSpinnerModule,
@@ -40,6 +46,7 @@ import { FormsModule } from '@angular/forms';
     BeautyPipe,
     EntitesPipe,
     DynamicFormComponent,
+    SubmitButtonComponent,
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
