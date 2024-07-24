@@ -9,14 +9,14 @@ import { CategoriesService } from 'app/core/services/features/categories.service
 })
 export class MainCategoryComponent implements OnInit {
   @Input() mainCategory!: mainSubCategoriesModel;
-  showSubCategories: boolean = true;
-  constructor(private service:CategoriesService.MainCategoryService) {}
+  showSubCategories: boolean = false;
+  constructor(private service: CategoriesService.MainCategoryService) {}
   ngOnInit(): void {
     console.log(this.mainCategory);
   }
-  onSubmit(form:any) {
-    form.value._id = this.mainCategory._id
-    this.service.updateMainCategoryService(form.value)
+  onSubmit(form: any) {
+    form.value._id = this.mainCategory._id;
+    this.service.updateMainCategoryService(form.value);
   }
   checkIsHidden(value: any) {
     console.log(value);
