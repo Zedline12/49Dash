@@ -1,6 +1,6 @@
-import { mainCategoryModel } from './mainCategory.model';
-import { subCateogryModel } from './subCategory.model';
-export interface mainSubCategoriesModel extends mainCategoryModel {
-  subCategories: subCateogryModel[];
+import { IMainCategory } from './mainCategory.model';
+import { ISubCateogry} from './subCategory.model';
+export interface IMainSubCategories extends IMainCategory {
+  subCategories: ISubCateogry[];
   subCategoriesCount: number;
 }

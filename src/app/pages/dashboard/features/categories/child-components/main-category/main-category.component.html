@@ -1,7 +1,7 @@
-<div class="container-fluid con">
+<div class="container-fluid shadow">
   <div class="row">
     <div class="col-12 d-flex justify-content-center">
-      <h3>{{ mainCategory.nameEn }}</h3>
+      <h3 class="header">{{ mainCategory.nameEn }}</h3>
     </div>
     <div class="col-12 d-flex justify-content-center">
       <img class="banner" src="assets/images/foodDeliver.jpeg" />
@@ -53,29 +53,25 @@
             <div class="form-group col-xs-4 col-md-4">
               <label for="name" class="control-label">isHidden</label>
               <mat-checkbox name="isHidden" [(ngModel)]="mainCategory.isHidden"
-                >Check me!</mat-checkbox
+                ></mat-checkbox
               >
             </div>
           </div>
-        </div>
-        <div class="row">
           <div class="col-12 d-flex justify-content-center">
             <submit-button></submit-button>
           </div>
         </div>
-        <div class="row">
-          <h3
-            (click)="toggleSubCategories()"
-            class="dropdown-toggle"
-            data-bs-toggle="dropdown"
-          >
-            SubCategories({{ mainCategory.subCategoriesCount }})
-          </h3>
-          <div style="max-height: 30em; overflow-y: auto" class="col-12">
-            <sub-categories
-              *ngIf="showSubCategories"
-              [subCategories]="mainCategory.subCategories"
-            ></sub-categories>
+
+        <div class="row d-flex justify-content-center">
+          <div class="col-12 d-flex justify-content-center mt-3">
+            <main-button (btnclick)="openSubCategories()">
+              SubCategories({{ mainCategory.subCategoriesCount }})
+            </main-button>
+          </div>
+          <div class="col-12 d-flex justify-content-center mt-3">
+            <main-button (btnclick)="addSubCategory()"
+              >Add SubCategory</main-button
+            >
           </div>
         </div>
         <hr style="color: white; height: 10px" />

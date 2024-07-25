@@ -1,7 +1,5 @@
 @import "global";
-.label {
-  color: white;
-}
+
 .btn {
   background-color: $secondary !important;
   color: white !important;
@@ -10,4 +8,9 @@
 }
 .primary {
   background-color: $primary;
+}
+@media (max-width: 400px) {
+  label {
+    font-size: 0.9em !important;
+  }
 }

@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { empty } from 'rxjs';
@@ -14,12 +21,15 @@ export class DynamicFormComponent implements OnInit {
   @Input() labelStyle: any = {};
   @Input() backgroundColor: string = 'primary';
   @Output() onSubmit: EventEmitter<any> = new EventEmitter();
+  @ViewChild('myform') form!: any;
+  bool = true;
   constructor() {}
-  ngOnInit(): void {
-   
-  }
+  ngOnInit(): void {}
   onFormSubmit(form: NgForm): void {
-    this.onSubmit.emit(form.value);
+     this.onSubmit.emit(form.value);
+  }
+  checkbox(key: string, value: any) {
+    this.form.value[key]=value.checked
   }
   itemType(item: any) {
     return typeof item;

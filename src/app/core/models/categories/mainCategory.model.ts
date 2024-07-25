@@ -1,4 +1,4 @@
-export interface mainCategoryModel {
+export interface IMainCategory {
   _id: string;
   banner: string;
   nameAr: string;

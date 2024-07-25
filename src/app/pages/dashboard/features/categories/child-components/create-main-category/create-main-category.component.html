@@ -1,0 +1,149 @@
+<div class="modal-header">
+  <h4 class="modal-title">Create MainCategory</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  ></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="mainCategoryForm" (ngSubmit)="onSubmit()">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group mb-3">
+            <label class="label" for="nameEn">NameEn</label>
+            <input
+              [ngStyle]="{
+                'border-color':
+                  mainCategoryForm.get('nameEn')?.invalid &&
+                  (mainCategoryForm.get('nameEn')?.dirty ||
+                    mainCategoryForm.get('nameEn')?.touched)
+                    ? 'red'
+                    : ''
+              }"
+              type="text"
+              class="form-control"
+              formControlName="nameEn"
+            />
+            <div
+              *ngIf="
+                mainCategoryForm.get('nameEn')?.invalid &&
+                (mainCategoryForm.get('nameEn')?.dirty ||
+                  mainCategoryForm.get('nameEn')?.touched)
+              "
+              class="text-danger"
+            >
+              NameEn is required.
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group mb-3">
+            <label class="label" for="nameAr">NameAr</label>
+            <input
+              [ngStyle]="{
+                'border-color':
+                  mainCategoryForm.get('nameAr')?.invalid &&
+                  (mainCategoryForm.get('nameAr')?.dirty ||
+                    mainCategoryForm.get('nameAr')?.touched)
+                    ? 'red'
+                    : ''
+              }"
+              type="text"
+              class="form-control"
+              formControlName="nameAr"
+            />
+            <div
+              *ngIf="
+                mainCategoryForm.get('nameAr')?.invalid &&
+                (mainCategoryForm.get('nameAr')?.dirty ||
+                  mainCategoryForm.get('nameAr')?.touched)
+              "
+              class="text-danger"
+            >
+              NameAr is required.
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group mb-3">
+            <label class="label" for="nameAr">NameCode</label>
+            <input
+              [ngStyle]="{
+                'border-color':
+                  mainCategoryForm.get('nameCode')?.invalid &&
+                  (mainCategoryForm.get('nameCode')?.dirty ||
+                    mainCategoryForm.get('nameCode')?.touched)
+                    ? 'red'
+                    : ''
+              }"
+              type="text"
+              class="form-control"
+              formControlName="nameCode"
+            />
+            <div
+              *ngIf="
+                mainCategoryForm.get('nameCode')?.invalid &&
+                (mainCategoryForm.get('nameCode')?.dirty ||
+                  mainCategoryForm.get('nameCode')?.touched)
+              "
+              class="text-danger"
+            >
+              NameCode is required.
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group mb-3">
+            <label class="label" for="nameAr">Index</label>
+            <input
+              [ngStyle]="{
+                'border-color':
+                  mainCategoryForm.get('index')?.invalid &&
+                  (mainCategoryForm.get('index')?.dirty ||
+                    mainCategoryForm.get('index')?.touched)
+                    ? 'red'
+                    : ''
+              }"
+              type="number"
+              class="form-control"
+              formControlName="index"
+            />
+            <div
+              *ngIf="
+                mainCategoryForm.get('index')?.invalid &&
+                (mainCategoryForm.get('index')?.dirty ||
+                  mainCategoryForm.get('index')?.touched)
+              "
+              class="text-danger"
+            >
+              Index is required.
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 d-flex align-items-center p-3">
+          <div class="form-group mb-3">
+            <label class="label" for="isHidden">IsHidden</label>
+            <mat-checkbox formControlName="isHidden"></mat-checkbox>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+          <submit-button>Submit</submit-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-secondary"
+    (click)="activeModal.close('Close click')"
+  >
+    Close
+  </button>
+</div>

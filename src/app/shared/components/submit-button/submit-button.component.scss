@@ -5,3 +5,8 @@
   padding: 0.5em 1.5em 0.5em 1.5em;
   font-size: 1em !important;
 }
+@media (max-width: 400px) {
+  .btn {
+    font-size: 0.9em !important;
+  }
+}

@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { subCateogryModel } from 'app/core/models/categories/subCategory.model';
+import { Component, inject, Input } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ISubCateogry } from 'app/core/models/categories/subCategory.model';
 import { CategoriesService } from 'app/core/services/features/categories.service';
 
 @Component({
@@ -8,7 +9,9 @@ import { CategoriesService } from 'app/core/services/features/categories.service
   styleUrl: './sub-categories.component.scss',
 })
 export class SubCategoriesComponent {
-  @Input() subCategories!: subCateogryModel[];
+  @Input() subCategories!: ISubCateogry[];
+  show: boolean = false
+  activeModal = inject(NgbActiveModal);
   constructor(private service: CategoriesService.SubCategoryService) {}
   onSubmit(value: any) {
     console.log(value);

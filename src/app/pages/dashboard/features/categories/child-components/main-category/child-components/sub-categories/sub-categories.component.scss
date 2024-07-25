@@ -11,3 +11,13 @@ h3 {
 .label {
   color: black !important;
 }
+@media (max-width: 600px) {
+  .banner {
+    width: 10em !important;
+  }
+}
+@media (max-width: 450px) {
+  label {
+    font-size: 0.9em !important;
+  }
+}

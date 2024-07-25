@@ -3,15 +3,6 @@
   width: 30%;
 }
 h3,
-label {
-  color: white;
-}
-.con {
-  background-color: $primary;
-}
-.primary {
-  background-color: $primary;
-}
 .form-group {
   position: relative;
   .label {
@@ -23,5 +14,15 @@ label {
   }
   a {
     color: lighten(black, 50%);
+  }
+}
+@media (max-width: 600px) {
+  .banner {
+    width: 10em !important;
+  }
+}
+@media (max-width: 450px) {
+  label {
+    font-size: 0.9em !important;
   }
 }

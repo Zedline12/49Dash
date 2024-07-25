@@ -3,9 +3,9 @@ import { apiEndPoints } from '../../constants/api.constant';
 import { HttpService } from '../core/http.service';
 import { Injectable, OnDestroy } from '@angular/core';
 import { SuccessResponse } from '../../classes/SuccessResponse';
-import { mainCategoryModel } from 'app/core/models/categories/mainCategory.model';
+import { IMainCategory } from 'app/core/models/categories/mainCategory.model';
 import { ToastrService } from 'ngx-toastr';
-import { subCateogryModel } from 'app/core/models/categories/subCategory.model';
+import { ISubCateogry } from 'app/core/models/categories/subCategory.model';
 
 export namespace CategoriesService {
   @Injectable({ providedIn: 'root' })
@@ -15,6 +15,21 @@ export namespace CategoriesService {
     //obseravbles
     private getAllCategoriesSubscription!: Subscription;
     private updateMainCategorySubscription!: Subscription;
+    private createMainSubCategorySubscription!: Subscription;
+
+    createMainSubCategory(MainCategory: IMainCategory) {
+      this.createMainSubCategorySubscription = this.http
+        .post(
+          apiEndPoints.categories.mainCategories.createMainCategory,
+          MainCategory
+        )
+        .pipe(
+          tap((res) => {
+            this.toster.success('MainCategory created successfully');
+          })
+        )
+        .subscribe();
+    }
     getAllMainCategoriesService() {
       this.getAllCategoriesSubscription = this.http
         .get(apiEndPoints.categories.mainCategories.getallMainCategories)
@@ -27,7 +42,7 @@ export namespace CategoriesService {
         )
         .subscribe();
     }
-    updateMainCategoryService(mainCategory: Partial<mainCategoryModel>) {
+    updateMainCategoryService(mainCategory: Partial<IMainCategory>) {
       this.updateMainCategorySubscription = this.http
         .put(
           apiEndPoints.categories.mainCategories.updateMainCategory +
@@ -44,6 +59,7 @@ export namespace CategoriesService {
     unsubscribe() {
       this.getAllCategoriesSubscription.unsubscribe();
       this.updateMainCategorySubscription.unsubscribe();
+      this.createMainSubCategorySubscription.unsubscribe();
     }
     ngOnDestroy(): void {
       this.unsubscribe();
@@ -55,27 +71,26 @@ export namespace CategoriesService {
     public SubCategories: BehaviorSubject<any> = new BehaviorSubject<any>([]);
     private getAllCategoriesSubscription!: Subscription;
     private updateSubCategorySubscription!: Subscription;
-    getAllSubCategoriesService(): void {
-      this.getAllCategoriesSubscription = this.http
-        .get(apiEndPoints.categories.subCategories.getallSubCategories)
+    private createSubCategorySubscription!: Subscription;
+
+    createSubCategory(subCategory: ISubCateogry) {
+      this.createSubCategorySubscription = this.http
+        .post(
+          apiEndPoints.categories.subCategories.createSubCategory,
+          subCategory
+        )
         .pipe(
           tap((res) => {
-            this.SubCategories.next(
-              new SuccessResponse(res).data().mainCategories
-            );
+            this.toster.success('subCategory created successfully');
           })
         )
         .subscribe();
     }
-    updateSubCategory(subCategory: Partial<subCateogryModel>) {
-      const id = subCategory._id
-      delete subCategory._id
-      delete (subCategory as any).isHidden
-      delete subCategory.nameCode
+    updateSubCategory(subCategory: Partial<ISubCateogry>) {
+      const id = subCategory._id;
       this.updateSubCategorySubscription = this.http
         .put(
-          apiEndPoints.categories.subCategories.updateSubCategory +
-            `/${id}`,
+          apiEndPoints.categories.subCategories.updateSubCategory + `/${id}`,
           subCategory
         )
         .pipe(
@@ -88,6 +103,7 @@ export namespace CategoriesService {
     unsubscribe() {
       this.getAllCategoriesSubscription.unsubscribe();
       this.updateSubCategorySubscription.unsubscribe();
+      this.createSubCategorySubscription.unsubscribe();
     }
     ngOnDestroy(): void {
       this.unsubscribe();

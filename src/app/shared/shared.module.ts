@@ -26,6 +26,9 @@ import { FormsModule } from '@angular/forms';
 import { SubmitButtonComponent } from 'app/shared/components/submit-button/submit-button.component';
 import { CommonModule } from '@angular/common';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ModalComponent } from './modal/modal.component';
+import { ModalService } from 'app/core/services/features/modal.service';
+import { MainButtonComponent } from './components/main-button/main-button.component';
 @NgModule({
   declarations: [
     SearchComponent,
@@ -33,6 +36,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     EntitesPipe,
     DynamicFormComponent,
     SubmitButtonComponent,
+    ModalComponent,
+    MainButtonComponent,
   ],
   imports: [
     CommonModule,
@@ -41,14 +46,17 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatCheckboxModule,
   ],
   exports: [
+    ModalComponent,
     NgxSpinnerModule,
     SearchComponent,
     BeautyPipe,
     EntitesPipe,
     DynamicFormComponent,
     SubmitButtonComponent,
+    MainButtonComponent,
   ],
   providers: [
+    ModalService,
     provideHttpClient(withInterceptorsFromDi()),
     {
       provide: HTTP_INTERCEPTORS,

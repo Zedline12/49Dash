@@ -13,10 +13,7 @@ export class AppMangerComponent implements OnInit {
     public auth: AuthService
   ) {}
   async ngOnInit(): Promise<void> {
-    this.appMangerServ.AppManger.subscribe((res) => {});
-    if (this.auth.isBrowser) {
-      await this.appMangerServ.getAllAppManger();
-    }
+  this.appMangerServ.getAllAppManger()
   }
   onSubmit(form: any) {
     this.appMangerServ.updateAppManger(form);

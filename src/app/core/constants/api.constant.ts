@@ -17,12 +17,13 @@ export const apiEndPoints = {
   },
   categories: {
     mainCategories: {
+      createMainCategory:`${serverUrl}/categories/dashboard/main`,
       getallMainCategories: `${serverUrl}/categories/main/nested-subcategories`,
       updateMainCategory:`${serverUrl}/categories/main`
     },
     subCategories: {
-      getallSubCategories: `${serverUrl}/categories/subcategories`,
-      updateSubCategory: `${serverUrl}/categories/subcategories`,
+      createSubCategory:`${serverUrl}/categories/dashboard/subcategories`,
+      updateSubCategory: `${serverUrl}/categories/dashboard/subcategories`,
     },
   },
 };
