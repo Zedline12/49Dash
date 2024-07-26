@@ -13,12 +13,3 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: $background;
 }
-::-webkit-scrollbar {
-  -webkit-appearance: none;
-  width: 15px;
-  background-color: lightgrey;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: $secondary;
-}
