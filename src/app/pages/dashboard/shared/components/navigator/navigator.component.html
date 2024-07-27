@@ -6,4 +6,9 @@
   <h5 *ngFor="let route of routes">
     <span style="margin-right: 10px;">/</span>{{ route }}
   </h5>
+  @if(routes.length == 0){
+    <h5>
+      <span style="margin-right: 10px;">/</span>
+    </h5>
+  }
 </div>
