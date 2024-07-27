@@ -1,3 +1,12 @@
 $primary: #0d0f26;
 $secondary: #c42b35;
 $background: #dcdfe3;
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@483&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+.header {
+  font-family: "Oswald", sans-serif;
+}
+.header-fade{
+    font-family: "Bebas Neue", sans-serif;
+    opacity: 0.9;
+}

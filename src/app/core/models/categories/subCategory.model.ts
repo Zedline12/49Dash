@@ -1,5 +1,6 @@
 export interface ISubCateogry {
   _id?: string;
+  picture: string;
   daily_price: number;
   portion: number;
   provider_portion: number;
