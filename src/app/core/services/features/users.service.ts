@@ -1,29 +1,19 @@
-import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subscription, tap } from 'rxjs';
 import { HttpService } from '../core/http.service';
 import { apiEndPoints } from '../../constants/api.constant';
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { SuccessResponse } from '../../classes/SuccessResponse';
+import { IUser } from 'app/core/models/user/IUser';
 
 @Injectable({ providedIn: 'root' })
-export class UserService {
+export class UserService implements OnDestroy {
   constructor(private http: HttpService) {}
-  users: BehaviorSubject<any> = new BehaviorSubject<any>([]);
-  usersDumb = [
-    {
-      image: 'assets/images/profile.jpeg',
-      name: 'Jana Khaled',
-      phone: 1099772095,
-      email: 'bedomohamed307@gmail.com',
-    },
-    {
-      image: 'assets/images/profile.jpeg',
-      name: 'Bedo Mohamed',
-      phone: 1099772095,
-      email: 'bedomohamed307@gmail.com',
-    },
-  ];
+  users: BehaviorSubject<Partial<IUser>[]> = new BehaviorSubject<Partial<IUser>[]>([]);
+  userProfile: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  private getAllUsersSubscription!: Subscription;
+  private getUserProfileSubscription!: Subscription;
   getAllUsersService(): void {
-    this.http
+    this.getAllUsersSubscription = this.http
       .get(apiEndPoints.users.getAllUsers)
       .pipe(
         tap((users) => {
@@ -32,4 +22,18 @@ export class UserService {
       )
       .subscribe();
   }
+  getUserProfile(id: string): void {
+    this.getUserProfileSubscription=this.getAllUsersSubscription = this.http
+    .get(apiEndPoints.users.getUserProfile+`/${id}`)
+    .pipe(
+      tap((users) => {
+        this.userProfile.next(new SuccessResponse(users).data()); // Push fetched data to subscribers
+      })
+    )
+    .subscribe();
+  }
+   ngOnDestroy(): void {
+     this.getAllUsersSubscription.unsubscribe()
+     this.getUserProfileSubscription.unsubscribe()
+   }
 }

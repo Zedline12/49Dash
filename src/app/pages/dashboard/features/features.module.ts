@@ -8,15 +8,11 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from '../../../shared/shared.module';
 import { IndexComponent } from './index/index.component';
+import { SharedFeatureModule } from './shared/shared-feature.module';
 
 @NgModule({
   declarations: [AppMangerComponent, IndexComponent],
-  imports: [
-    CommonModule,
-    FeaturesRoutingModule,
-    SharedModule,
-    FormsModule,
-    MatButtonModule,
-  ],
+  imports: [CommonModule, FeaturesRoutingModule, FormsModule, MatButtonModule,SharedModule,SharedFeatureModule],
+  exports: [],
 })
 export class FeaturesModule {}

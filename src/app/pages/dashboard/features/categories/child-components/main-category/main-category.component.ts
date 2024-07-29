@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { IMainSubCategories } from 'app/core/models/categories/mainSubCategories.model';
+import { IMainSubCategories } from 'app/core/models/categories/IMainSubcategories';
 import { CategoriesService } from 'app/core/services/features/categories.service';
 import { ModalService } from 'app/core/services/features/modal.service';
 import { SubCategoriesComponent } from './child-components/sub-categories/sub-categories.component';

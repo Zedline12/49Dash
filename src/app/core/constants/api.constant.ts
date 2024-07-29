@@ -14,6 +14,7 @@ export const apiEndPoints = {
   },
   users: {
     getAllUsers: `${serverUrl}/users`,
+    getUserProfile:`${serverUrl}/users`,
   },
   categories: {
     mainCategories: {

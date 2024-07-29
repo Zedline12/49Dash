@@ -3,9 +3,9 @@ import { apiEndPoints } from '../../constants/api.constant';
 import { HttpService } from '../core/http.service';
 import { Injectable, OnDestroy } from '@angular/core';
 import { SuccessResponse } from '../../classes/SuccessResponse';
-import { IMainCategory } from 'app/core/models/categories/mainCategory.model';
+import { IMainCategory } from 'app/core/models/categories/IMainCategory';
 import { ToastrService } from 'ngx-toastr';
-import { ISubCateogry } from 'app/core/models/categories/subCategory.model';
+import { ISubCateogry } from 'app/core/models/categories/ISubCategory';
 
 export namespace CategoriesService {
   @Injectable({ providedIn: 'root' })

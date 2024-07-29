@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { ISubCateogry } from 'app/core/models/categories/subCategory.model';
+import { ISubCateogry } from 'app/core/models/categories/ISubCategory';
 import { CategoriesService } from 'app/core/services/features/categories.service';
 
 @Component({

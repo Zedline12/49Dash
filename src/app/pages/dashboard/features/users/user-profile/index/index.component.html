@@ -1,0 +1,203 @@
+<feature-title>User Profile</feature-title>
+<div class="container-fluid h-100">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12">
+      <div class="card">
+        <div
+          class="rounded-top cover text-white d-flex flex-row"
+          style="background-color: #000; height: 200px"
+        >
+          <div class="ms-4 imagebtndiv d-flex flex-column">
+            <img
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+              alt="Generic placeholder image"
+              class="img-fluid img-thumbnail mt-4 mb-2"
+              style="width: 150px; z-index: 1"
+            />
+            <button
+              type="button"
+              data-mdb-button-init
+              data-mdb-ripple-init
+              class="btn btn-outline-dark text-body"
+              data-mdb-ripple-color="dark"
+              style="z-index: 1"
+            >
+              Edit profile
+            </button>
+          </div>
+          <div class="ms-3 name">
+            <h5>
+              {{ (userServ.userProfile | async).user.firstName }}
+              {{ (userServ.userProfile | async).user.lastName }}
+            </h5>
+            <p>Egypt</p>
+          </div>
+        </div>
+        <div
+          class="followers p-4 d-sm-block d-flex justify-content-center text-black bg-body-tertiary"
+        >
+          <div class="d-flex justify-content-end text-center py-1 text-body">
+            <div>
+              <p class="mb-1 h5">
+                {{ (userServ.userProfile | async).friends.length }}
+              </p>
+              <p class="small text-muted mb-0">Friends</p>
+            </div>
+            <div class="px-3">
+              <p class="mb-1 h5">
+                {{ (userServ.userProfile | async).followers.length }}
+              </p>
+              <p class="small text-muted mb-0">Followers</p>
+            </div>
+            <div>
+              <p class="mb-1 h5">
+                {{ (userServ.userProfile | async).following.length }}
+              </p>
+              <p class="small text-muted mb-0">Following</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-body p-4 text-black">
+          <div class="mb-5 text-body ">
+            <h4  data-bs-toggle="collapse" data-bs-target="#collapseExample" style="font-weight: bold;cursor: pointer;">Addional Data <i style="font-size: 0.7em;" class="bi bi-caret-down-fill"></i></h4>
+            <div id="collapseExample" class="bg-body-tertiary p-3 collapse container-fluid mt-3">
+              <div class="row">
+                <div style="border-right: 1px solid grey;" class="col-12 col-xl-4 d-flex align-items-center justify-content-center">
+                  <h6>
+                    <i class="bi bi-envelope-fill"></i>
+                    {{ (userServ.userProfile | async).user.email }}
+                  </h6>
+                </div>
+              
+                <div style="border-right: 1px solid grey;" class="col-12 col-xl-4 d-flex align-items-center justify-content-center">
+                  <h6>
+                    <i
+                      class="bi"
+                      [ngClass]="{
+                        'bi-gender-male':
+                          (userServ.userProfile | async).user.gender === 'male',
+                        'bi-gender-female':
+                          (userServ.userProfile | async).user.gender ===
+                          'female'
+                      }"
+                    ></i>
+                    {{ (userServ.userProfile | async).user.gender }}
+                  </h6>
+                </div>
+                <div class="verified col-12 col-xl-4 d-flex align-items-center justify-content-center">
+                  <div class="row">
+                    <div class="col-12">
+                      <h6 class="text-center">
+                        <i
+                          class="bi"
+                          [ngClass]="{
+                            'bi-check-lg': (userServ.userProfile | async).user
+                              .isEmailVerified,
+                            'bi-x-lg': !(userServ.userProfile | async).user
+                              .isEmailVerified
+                          }"
+                        ></i>
+                        Email Verified
+                      </h6>
+                    </div>
+                    <div class="col-12">
+                      <h6 class="text-center">
+                        <i
+                          class="bi"
+                          [ngClass]="{
+                            'bi-check-lg': (userServ.userProfile | async).user
+                              .isPhoneVerified,
+                            'bi-x-lg': !(userServ.userProfile | async).user
+                              .isPhoneVerified
+                          }"
+                        ></i>
+                        Phone Verified
+                      </h6>
+                    </div>
+                    <div class="col-12">
+                      <h6 class="text-center">
+                        <i
+                          class="bi"
+                          [ngClass]="{
+                            'bi-unlock-fill': !(userServ.userProfile | async).user
+                              .isLocked,
+                            'bi-lock-fill': (userServ.userProfile | async).user
+                              .isLocked
+                          }"
+                        ></i>
+                        {{!(userServ.userProfile | async).user.isLocked ? 'Unlocked' : 'Locked'}}
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-xl-3"></div>
+              </div>
+            </div>
+           
+          </div>
+          <div class=" container-fluid mt-5">
+            <h4 data-bs-toggle="collapse" data-bs-target="#walletCollapse" style="font-weight: bold;cursor: pointer;">Wallets <i style="font-size: 0.7em;" class="bi bi-caret-down-fill"></i></h4>
+            <div id="walletCollapse"  class="row collapse bg-body-tertiary p-3">
+              <div class="col-12 col-xl-3 d-flex justify-content-center">
+                <h6 class="text-center">Balance: {{ (userServ.userProfile | async).user.wallet.balance }}</h6>
+              </div>
+              <div class="col-12 col-xl-3 d-flex justify-content-center">
+                <h6 class="text-center">Normal Wallet: {{ (userServ.userProfile | async).user.wallet.realAmount }}</h6>
+              </div>
+              <div class="col-12 col-xl-3 d-flex justify-content-center">
+                <h6 class="text-center">Refund Storage: {{ (userServ.userProfile | async).user.wallet.refund_storage }}</h6>
+              </div>
+              <div class="col-12 col-xl-3 d-flex justify-content-center">
+                <h6 class="text-center">Gift Wallet: {{ (userServ.userProfile | async).user.gift_wallet.amount }}</h6>
+              </div>
+            </div>
+          </div>
+          <div class="mb-5 mt-5 text-body">
+            <p class="lead fw-normal mb-1">Bio</p>
+            <div class="p-4 bg-body-tertiary">
+              <p>{{ (userServ.userProfile | async).bio }}</p>
+            </div>
+          </div>
+          <div
+            class="d-flex justify-content-between align-items-center mb-4 text-body"
+          >
+            <p class="lead fw-normal mb-0">Recent Posts</p>
+            <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
+          </div>
+          <div class="row g-2">
+            <div class="col mb-2">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
+                alt="image 1"
+                class="w-100 rounded-3"
+              />
+            </div>
+            <div class="col mb-2">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp"
+                alt="image 1"
+                class="w-100 rounded-3"
+              />
+            </div>
+          </div>
+          <div class="row g-2">
+            <div class="col">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
+                alt="image 1"
+                class="w-100 rounded-3"
+              />
+            </div>
+            <div class="col">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
+                alt="image 1"
+                class="w-100 rounded-3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

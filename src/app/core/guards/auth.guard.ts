@@ -13,9 +13,9 @@ export class AuthGuard implements CanActivate {
     await this.authService.validateToken().subscribe(
       () => {
         if (!this.authService.isUserAuthenticated()) {
-          return Promise.reject();
+          return false;
         }
-        return Promise.reject();
+        return true;
       },
       (err) => {
         return false;

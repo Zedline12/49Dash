@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  serverUrl: 'https://49dev.com/api/v1',
+  serverUrl: 'http://localhost:3000/api/v1',
   accessToken: 'ACCESS_TOKEN',
   refreshToken: 'REFRESH_TOKEN',
 };
