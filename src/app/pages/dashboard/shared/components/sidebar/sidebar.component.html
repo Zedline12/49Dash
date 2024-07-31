@@ -1,12 +1,24 @@
-<nav [@inOutAnimation] *ngIf="innerWidth>991 || (sideBarServ.showSideBar | async)" id="sidebarMenu"   class=" sidebar">
-  <div class="position-sticky ">
+<nav
+  [@inOutAnimation]
+  *ngIf="innerWidth > 991 || (sideBarServ.showSideBar | async)"
+  id="sidebarMenu"
+  class="sidebar"
+>
+  <div class="position-sticky">
     <div class="list-group list-group-flush mx-3 mt-5">
       <!-- Collapse 1 -->
-       <h3 class="header text-center">Dashboard</h3>
-        <h4 class="header mt-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          Features
-        </h4>
-    
+      <h3 class="header text-center">Dashboard</h3>
+      <h4
+        class="header mt-5"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseExample"
+        aria-expanded="false"
+        aria-controls="collapseExample"
+      >
+        Features
+      </h4>
+
       <div class="collapse show" id="collapseExample">
         <ul>
           <li [routerLink]="['/users']">Users</li>
@@ -14,10 +26,15 @@
           <li [routerLink]="['/categories']">Categories</li>
         </ul>
       </div>
+      <h5
+        class="mt-5"
+        (click)="logout()"
+      >
+        Logut
+      </h5>
       <!-- Collapse 1 -->
 
       <!-- Collapse 2 -->
-     
     </div>
   </div>
 </nav>

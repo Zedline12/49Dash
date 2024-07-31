@@ -1,5 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SideBarService } from 'app/core/services/core/sideBar.service';
 
 @Component({
@@ -23,5 +24,9 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
   }
-  constructor(public sideBarServ: SideBarService) {}
+  logout() {
+    localStorage.clear()
+    this.router.navigate(['/auth'])
+  }
+  constructor(public sideBarServ: SideBarService,public router:Router) {}
 }
