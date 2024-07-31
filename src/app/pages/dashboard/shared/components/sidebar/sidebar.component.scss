@@ -15,10 +15,13 @@
   color: white;
   border: none;
 }
-@media (max-width: 991.98px) {
-  .sidebar {
-    width: 100%;
-  }
+li{
+  list-style: none;
+  padding-top:20px;
+  cursor: pointer;
+}
+ul{
+  margin-top:5px;
 }
 .sidebar .active {
   border-radius: 5px;
@@ -31,4 +34,7 @@
   padding-top: 0.5rem;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+*{
+  color:white;
 }

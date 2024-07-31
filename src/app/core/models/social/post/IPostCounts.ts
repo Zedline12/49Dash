@@ -5,4 +5,5 @@ export interface IPostCounts {
   wowCount: number;
   sadCount: number;
   angryCount: number;
+  commentsCount: number;
 }

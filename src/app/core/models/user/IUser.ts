@@ -1,7 +1,7 @@
 import { IPost } from '../social/post/IPost';
+import { IWallet } from '../wallets/IWallet';
 import { IUserGiftWallet } from './IUserGiftWallet';
-import { IUserWallet } from './IUserWallet';
-
+import { IGiftWallet } from '../wallets/IGiftWallet';
 export interface IUser {
   username?: string;
   firstName: string;
@@ -11,8 +11,8 @@ export interface IUser {
   gender: string;
  
   //wallets
-  wallet?: Partial<IUserWallet>;
-  gift_wallet?: IUserGiftWallet
+  wallet?: Partial<IWallet>;
+  gift_wallet?: IGiftWallet
   //
 
   //addional data

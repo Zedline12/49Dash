@@ -1,65 +1,23 @@
-<nav id="sidebarMenu"   class="collapse d-lg-block sidebar collapse">
-  <div class="position-sticky d-block">
-    <div class="list-group list-group-flush mx-3 mt-4">
+<nav [@inOutAnimation] *ngIf="innerWidth>991 || (sideBarServ.showSideBar | async)" id="sidebarMenu"   class=" sidebar">
+  <div class="position-sticky ">
+    <div class="list-group list-group-flush mx-3 mt-5">
       <!-- Collapse 1 -->
-      <a
-        class="list-group-item list-group-item-action py-2 ripple"
-        aria-current="true"
-        data-mdb-collapse-init
-        href="#collapseExample1"
-        aria-expanded="true"
-        aria-controls="collapseExample1"
-      >
-        <i class="fas fa-tachometer-alt fa-fw me-3"></i
-        ><span>Expanded menu</span>
-      </a>
-      <!-- Collapsed content -->
-      <ul
-        id="collapseExample1"
-        class="collapse show list-group list-group-flush"
-      >
-        <li class="list-group-item py-1">
-          <a [routerLink]="['/appManger']" class="text-reset">appManger</a>
-        </li>
-        <li class="list-group-item py-1">
-          <a [routerLink]="['/users']" class="text-reset">Users</a>
-        </li>
-        <li class="list-group-item py-1">
-          <a [routerLink]="['/categories']" class="text-reset">categories</a>
-        </li>
-        <li class="list-group-item py-1">
-          <a href="" class="text-reset">Link</a>
-        </li>
-      </ul>
+       <h3 class="header text-center">Dashboard</h3>
+        <h4 class="header mt-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Features
+        </h4>
+    
+      <div class="collapse show" id="collapseExample">
+        <ul>
+          <li [routerLink]="['/users']">Users</li>
+          <li [routerLink]="['/appManger']">App Manger</li>
+          <li [routerLink]="['/categories']">Categories</li>
+        </ul>
+      </div>
       <!-- Collapse 1 -->
 
       <!-- Collapse 2 -->
-      <a
-        class="list-group-item list-group-item-action py-2 ripple"
-        aria-current="true"
-        data-mdb-collapse-init
-        href="#collapseExample2"
-        aria-expanded="true"
-        aria-controls="collapseExample2"
-      >
-        <i class="fas fa-chart-area fa-fw me-3"></i><span>Collapsed menu</span>
-      </a>
-      <!-- Collapsed content -->
-      <ul id="collapseExample2" class="collapse list-group list-group-flush">
-        <li class="list-group-item py-1">
-          <a href="" class="text-reset">Link</a>
-        </li>
-        <li class="list-group-item py-1">
-          <a href="" class="text-reset">Link</a>
-        </li>
-        <li class="list-group-item py-1">
-          <a href="" class="text-reset">Link</a>
-        </li>
-        <li class="list-group-item py-1">
-          <a href="" class="text-reset">Link</a>
-        </li>
-      </ul>
-      <!-- Collapse 2 -->
+     
     </div>
   </div>
 </nav>

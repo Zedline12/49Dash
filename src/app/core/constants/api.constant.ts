@@ -14,7 +14,8 @@ export const apiEndPoints = {
   },
   users: {
     getAllUsers: `${serverUrl}/users`,
-    getUserProfile:`${serverUrl}/users`,
+    getUserProfile: `${serverUrl}/users`,
+    updateRole:`${serverUrl}/dashboard/users/:id/role`
   },
   categories: {
     mainCategories: {

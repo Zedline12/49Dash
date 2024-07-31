@@ -1,14 +1,21 @@
-<a [routerLink]="['/users/','66a40f0d88dc22dcdbd14202']">go</a>
-<div class="container-fluid shadow">
-  <search
+<feature-title>Users List</feature-title>
+<div class="container-fluid bg-white">
+  <div class="row">
+    
+    <search 
     class="mt-5"
-    [items]="UserServ.users"
+    [items]="UserServ.users | async"
     [keys]="searchKeys"
     (filteredItems)="onFilter($event)"
   ></search>
-  <div style="max-width: 60em !important" class="container">
-    @for (user of filteredUsers ; track user; let i = $index) {
-    <user-card style="margin: 10px !important" [user]="user"></user-card>
-    }
+  <hr class="mb-5 mt-3" style="margin:auto;width:70%;"/>
+  <div style="max-width: 60em !important;" class="container">
+    <h2  class="header-fade ">Results:{{filteredUsers.length}}</h2>
+    <div style="border:1px solid gainsboro;max-height:50em;;overflow-y:scroll">
+      @for (user of filteredUsers ; track user; let i = $index) {
+        <user-card  style="margin: 10px !important" [user]="user"></user-card>
+        }
+    </div>
   </div>
+  </div> 
 </div>

@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { UsersRoutingModule } from './users-list-routing.module';
 import { IndexComponent } from './index/index.component';
-import { UserCardComponent } from './child-components/user-card/user-card.component';
 import { UserService } from '../../../../../core/services/features/users.service';
 import { SharedModule } from '../../../../../shared/shared.module';
+import { UserSharedModule } from '../user-shared/user-shared.module';
+import { SharedFeatureModule } from '../../shared/shared-feature.module';
 
 @NgModule({
-  declarations: [IndexComponent, UserCardComponent],
-  imports: [CommonModule, UsersRoutingModule, SharedModule],
+  declarations: [IndexComponent],
+  imports: [CommonModule, UsersRoutingModule, SharedModule,UserSharedModule,SharedFeatureModule],
   providers: [UserService],
 })
 export class UsersListModule {}

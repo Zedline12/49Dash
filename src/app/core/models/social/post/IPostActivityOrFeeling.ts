@@ -1,5 +1,5 @@
 export interface IPostActivityOrFeeling {
-  nameEn: string;
-  nameAr: string;
+  name_en: string;
+  name_ar: string;
   picture: string;
 }

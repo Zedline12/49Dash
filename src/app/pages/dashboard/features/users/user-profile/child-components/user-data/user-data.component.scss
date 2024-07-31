@@ -1,0 +1,23 @@
+@import "global";
+i {
+  margin-right: 5px;
+}
+.bi-gender-male {
+  color: blue;
+}
+
+
+h6 {
+  font-size: 1.1em;
+}
+span {
+  font-weight: 300;
+}
+@media(max-width:576px){
+  .active{
+    border:none !important;
+  }
+  hr{
+    display: none !important;
+  }
+}

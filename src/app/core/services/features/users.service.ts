@@ -4,11 +4,12 @@ import { apiEndPoints } from '../../constants/api.constant';
 import { Injectable, OnDestroy } from '@angular/core';
 import { SuccessResponse } from '../../classes/SuccessResponse';
 import { IUser } from 'app/core/models/user/IUser';
+import { IUserCard } from 'app/core/models/user/IUserCard';
 
 @Injectable({ providedIn: 'root' })
 export class UserService implements OnDestroy {
   constructor(private http: HttpService) {}
-  users: BehaviorSubject<Partial<IUser>[]> = new BehaviorSubject<Partial<IUser>[]>([]);
+  users: BehaviorSubject<IUserCard[]> = new BehaviorSubject<IUserCard[]>([]);
   userProfile: BehaviorSubject<any> = new BehaviorSubject<any>([]);
   private getAllUsersSubscription!: Subscription;
   private getUserProfileSubscription!: Subscription;

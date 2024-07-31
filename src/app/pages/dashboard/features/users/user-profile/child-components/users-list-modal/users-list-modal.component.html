@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <h4 class="modal-title">SubCategories</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  ></button>
+</div>
+<div class="modal-body">
+  <div class="container-fluid p-sm-5 p-0">
+    <div class="row">
+      <search
+        [items]="users"
+        [keys]="searchKeys"
+        (filteredItems)="onFilter($event)"
+      ></search>
+      @for (user of filteredItems;track user) {
+      <user-card (click)="navigate(user._id)" class="mb-5" [user]="user"></user-card>
+      }
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-secondary"
+    (click)="activeModal.close('Close click')"
+  >
+    Close
+  </button>
+</div>

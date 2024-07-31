@@ -6,9 +6,11 @@ import { IndexComponent } from './index/index/index.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { NavigatorComponent } from './shared/components/navigator/navigator.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { SideBarService } from 'app/core/services/core/sideBar.service';
 
 @NgModule({
   declarations: [IndexComponent, NavbarComponent, NavigatorComponent, SidebarComponent],
   imports: [CommonModule, DashboardRoutingModule],
+  providers: [SideBarService],
 })
 export class DashboardModule {}

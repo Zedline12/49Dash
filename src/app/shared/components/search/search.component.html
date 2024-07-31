@@ -1,23 +1,25 @@
-<div class="container search-con p-3">
-  <div class="row d-flex justify-content-center">
-    <div style="width: 60%" class="input-group d-flex justify-content-center">
-      <input
-        style="width: 60%"
-        type="text"
-        #inp
-        class="form-control d-flex justify-content-center"
-        (input)="search(inp.value)"
-      />
-      <select
-        (change)="onSelect($event)"
-        style="width: 1em"
-        class="form-select d-flex justify-content-center"
-        aria-label="Default select example"
-      >
-        @for(key of keys; track key; let i = $index) {
-        <option [value]="key">{{ key | beauty }}</option>
-        }
-      </select>
+  <div class="col-12">
+    <div class="row d-flex justify-content-center">
+      <div style="width: 60%" class="input-group d-flex justify-content-center">
+        <input
+          style="width: 60%"
+          type="text"
+          #inp
+          class="form-control d-flex justify-content-center"
+          (input)="search(inp.value)"
+        />
+        <select
+          (change)="onSelect($event)"
+          style="width: 1em"
+          class="form-select d-flex justify-content-center"
+          aria-label="Default select example"
+        >
+          @for(key of keys; track key; let i = $index) {
+          <option [value]="key">{{ key | beauty }}</option>
+          }
+        </select>
+      </div>
     </div>
+  
   </div>
-</div>
+
