@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
-const serverUrl: string = environment.serverUrl;
+export const serverUrl: string = environment.serverUrl;
 export const apiEndPoints = {
   auth: {
     login: `${serverUrl}/auth/login`,
