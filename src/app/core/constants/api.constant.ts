@@ -15,6 +15,9 @@ export const apiEndPoints = {
   users: {
     getAllUsers: `${serverUrl}/users`,
     getUserProfile: `${serverUrl}/users`,
+    getUsersWallets: `${serverUrl}/dashboard/users/usersWallets`,
+    getUserWallets: `${serverUrl}/dashboard/users/userWallets`,
+    updateUserWallets: `${serverUrl}/dashboard/users/userWallets`,
     updateRole:`${serverUrl}/dashboard/users/:id/role`
   },
   categories: {

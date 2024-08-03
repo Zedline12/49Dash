@@ -9,7 +9,7 @@ export interface IUser {
   email: string;
   phone: number;
   gender: string;
- 
+  profilePicture?: string;
   //wallets
   wallet?: Partial<IWallet>;
   gift_wallet?: IGiftWallet

@@ -1,7 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from 'app/core/services/features/users.service';
+import { UserService } from 'app/core/services/features/users/users.service';
 import {
   fadeInOnEnterAnimation,
   fadeOutOnLeaveAnimation,
@@ -72,7 +72,10 @@ export class IndexComponent implements OnInit {
       (post: any) =>
         (post = {
           ...post,
-          user: { firstName: this.userServ.userProfile.value.user.firstName,lastName: this.userServ.userProfile.value.user.lastName },
+          user: {
+            firstName: this.userServ.userProfile.value.user.firstName,
+            lastName: this.userServ.userProfile.value.user.lastName,
+          },
         })
     );
     modalRef.componentInstance.posts = tw_posts;

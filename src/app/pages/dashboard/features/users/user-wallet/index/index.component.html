@@ -1,26 +1,68 @@
-<div style="cursor: pointer" class="col-12 shadow">
-  <div class="row d-flex justify-content-xl-left justify-content-center ">
-     
-     <div class="row d-flex justify-content-center align-items-center flex-row row-cols-sm-4 row-cols-2">
-        <img style="width:80px !important;" class="proflePic" src="assets/images/profile.jpeg" />
-        <h6 class="text-center"><span style="font-weight: bold;">Balance:</span>:0</h6>
-        <h6 class="text-center"><span style="font-weight: bold;">Wallet:</span>0</h6>
+<div
+  *ngFor="let user of service.usersWallets | async"
+  style="cursor: pointer"
+  class="col-12 shadow"
+>
+  <div class="row d-flex justify-content-xl-left justify-content-center">
+    <div
+      class="row d-flex justify-content-center align-items-center flex-row row-cols-sm-4 row-cols-2"
+    >
+      <img
+        style="width: 80px !important"
+        class="proflePic"
+        src="assets/images/profile.jpeg"
+      />
+      <h6 class="p-0 text-center">
+        <span style="font-weight: bold">name:</span>{{ user.firstName }}
+        {{ user.lastName }}
+      </h6>
+      <h6 class="text-center">
+        <span style="font-weight: bold">Balance:</span>{{ user.balance }}
+      </h6>
+      <h6 class="text-center">
+        <span style="font-weight: bold">Wallet:</span>{{ user.realAmount }}
+      </h6>
 
-        <h6 class="text-center"><span style="font-weight: bold;">Provider:</span>0</h6>
-        <h6 class="text-center"><span style="font-weight: bold;">Refund:</span>0</h6>
-        <h6 class="text-center"><span style="font-weight: bold;">Clicks:</span>0</h6>
-        <h6 class="text-center"><span style="font-weight: bold;">Uni Ref:</span>0</h6>
-        <h6 class="text-center"><span style="font-weight: bold;">Refs:</span>0</h6>
-     </div>
-     <div class="col-12 d-flex justify-content-center mb-3 ">
-        <main-button  class="d-flex justify-content-center" style="font-size:0.4em;height:30px">Edit Wallets</main-button>
-      </div>
-      <div class="col-6 d-flex justify-content-center mb-3 ">
-        <main-button  class="d-flex justify-content-center" style="font-size:0.4em;height:30px">Notifiy User</main-button>
-      </div>
-      <div class="col-6 d-flex justify-content-center ">
-        <main-button  class="d-flex justify-content-center" style="font-size:0.4em;height:30px">Notifiy All</main-button>
-      </div>
-   
+      <h6 class="text-center">
+        <span style="font-weight: bold">Provider:</span
+        >{{ user.provider_cash_back }}
+      </h6>
+      <h6 class="text-center">
+        <span style="font-weight: bold">Refund:</span>{{ user.refund_storage }}
+      </h6>
+      <h6 class="text-center">
+        <span style="font-weight: bold">Clicks:</span
+        >{{ user.free_click_storage }}
+      </h6>
+      <h6 class="text-center">
+        <span style="font-weight: bold">Uni Ref:</span
+        >{{ user.referral_cash_back }}
+      </h6>
+      <h6 class="text-center">
+        <span style="font-weight: bold">Refs:</span>{{ user.referral_storage }}
+      </h6>
+    </div>
+    <div class="col-12 d-flex justify-content-center mb-3">
+      <main-button
+        (btnclick)="openWalletsModal(user._id)"
+        class="d-flex justify-content-center"
+        style="font-size: 0.4em; height: 30px"
+        >Edit Wallets</main-button
+      >
+    </div>
+    <div class="col-6 d-flex justify-content-center mb-3">
+      <main-button
+        class="d-flex justify-content-center"
+        style="font-size: 0.4em; height: 30px"
+        >Notifiy User</main-button
+      >
+    </div>
+    <div class="col-6 d-flex justify-content-center">
+      <main-button
+        class="d-flex justify-content-center"
+        style="font-size: 0.4em; height: 30px"
+        >Notifiy All</main-button
+      >
+    </div>
   </div>
 </div>

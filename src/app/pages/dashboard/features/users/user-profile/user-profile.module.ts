@@ -5,7 +5,7 @@ import { UserProfileRoutingModule } from './user-profile-routing.module';
 import { IndexComponent } from './index/index.component';
 
 import { SharedFeatureModule } from '../../shared/shared-feature.module';
-import { UserService } from 'app/core/services/features/users.service';
+import { UserService } from 'app/core/services/features/users/users.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserDataComponent } from './child-components/user-data/user-data.component';
 import { UsersListModalComponent } from './child-components/users-list-modal/users-list-modal.component';
@@ -15,14 +15,19 @@ import { PostsListModalComponent } from './child-components/posts-list-modal/pos
 import { PostsSharedModule } from '../../posts/posts-shared/posts-shared.module';
 
 @NgModule({
-  declarations: [IndexComponent, UserDataComponent, UsersListModalComponent, PostsListModalComponent],
+  declarations: [
+    IndexComponent,
+    UserDataComponent,
+    UsersListModalComponent,
+    PostsListModalComponent,
+  ],
   imports: [
     CommonModule,
     UserProfileRoutingModule,
     SharedFeatureModule,
     UserSharedModule,
     SharedModule,
-    PostsSharedModule
+    PostsSharedModule,
   ],
   providers: [UserService],
 })

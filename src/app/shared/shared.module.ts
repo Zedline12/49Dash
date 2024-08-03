@@ -29,6 +29,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ModalComponent } from './modal/modal.component';
 import { ModalService } from 'app/core/services/features/modal.service';
 import { MainButtonComponent } from './components/main-button/main-button.component';
+import { SearchPageComponent } from './components/search-page/search-page.component';
 @NgModule({
   declarations: [
     SearchComponent,
@@ -38,6 +39,7 @@ import { MainButtonComponent } from './components/main-button/main-button.compon
     SubmitButtonComponent,
     ModalComponent,
     MainButtonComponent,
+    SearchPageComponent,
   ],
   imports: [
     CommonModule,
@@ -54,6 +56,7 @@ import { MainButtonComponent } from './components/main-button/main-button.compon
     DynamicFormComponent,
     SubmitButtonComponent,
     MainButtonComponent,
+    SearchPageComponent
   ],
   providers: [
     ModalService,

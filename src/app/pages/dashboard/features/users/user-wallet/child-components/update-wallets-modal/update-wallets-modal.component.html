@@ -1,0 +1,81 @@
+<div class="modal-header">
+  <h4 class="modal-title">Edit User Wallets</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  ></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="walletsForm" (ngSubmit)="onSubmit()">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group mb-3">
+            <label class="label" for="nameEn">Balance</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="balance"
+            />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group mb-3">
+            <label class="label" for="nameEn">Wallet</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="realAmount"
+            />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group mb-3">
+            <label class="label" for="nameEn">Provider</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="provider_cash_back"
+            />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group mb-3">
+            <label class="label" for="nameEn">Refund</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="refund_storage"
+            />
+          </div>
+        </div>
+        <div class="col-sm-6 ">
+          <div class="form-group mb-3">
+            <label class="label" for="nameEn">Free Clicks</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="free_click_storage"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+          <submit-button>Submit</submit-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-secondary"
+    (click)="activeModal.close('Close click')"
+  >
+    Close
+  </button>
+</div>

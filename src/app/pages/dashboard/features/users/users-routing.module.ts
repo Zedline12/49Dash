@@ -6,6 +6,10 @@ const userWallets= () => import('./user-wallet/user-wallets.module').then((m) =>
 const routes: Routes = [
   {
     path: '',
+    loadChildren:usersList
+  },
+  {
+    path: 'wallets',
     loadChildren:userWallets
   },
   {

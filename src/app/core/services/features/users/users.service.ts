@@ -1,10 +1,11 @@
 import { BehaviorSubject, Observable, of, Subscription, tap } from 'rxjs';
-import { HttpService } from '../core/http.service';
-import { apiEndPoints } from '../../constants/api.constant';
+import { HttpService } from '../../core/http.service';
+import { apiEndPoints } from '../../../constants/api.constant';
 import { Injectable, OnDestroy } from '@angular/core';
-import { SuccessResponse } from '../../classes/SuccessResponse';
+import { SuccessResponse } from '../../../classes/SuccessResponse';
 import { IUser } from 'app/core/models/user/IUser';
 import { IUserCard } from 'app/core/models/user/IUserCard';
+import { IWallet } from 'app/core/models/wallets/IWallet';
 
 @Injectable({ providedIn: 'root' })
 export class UserService implements OnDestroy {
@@ -23,18 +24,19 @@ export class UserService implements OnDestroy {
       )
       .subscribe();
   }
+ 
   getUserProfile(id: string): void {
-    this.getUserProfileSubscription=this.getAllUsersSubscription = this.http
-    .get(apiEndPoints.users.getUserProfile+`/${id}`)
-    .pipe(
-      tap((users) => {
-        this.userProfile.next(new SuccessResponse(users).data()); // Push fetched data to subscribers
-      })
-    )
-    .subscribe();
+    this.getUserProfileSubscription = this.getAllUsersSubscription = this.http
+      .get(apiEndPoints.users.getUserProfile + `/${id}`)
+      .pipe(
+        tap((users) => {
+          this.userProfile.next(new SuccessResponse(users).data()); // Push fetched data to subscribers
+        })
+      )
+      .subscribe();
   }
-   ngOnDestroy(): void {
-     this.getAllUsersSubscription.unsubscribe()
-     this.getUserProfileSubscription.unsubscribe()
-   }
+  ngOnDestroy(): void {
+    this.getAllUsersSubscription.unsubscribe();
+    this.getUserProfileSubscription.unsubscribe();
+  }
 }
