@@ -11,23 +11,27 @@ export const apiEndPoints = {
   appManger: {
     getAllAppManger: `${serverUrl}/app-manager-dashboard`,
     updateAppManger: `${serverUrl}/app-manager-dashboard`,
+    getStorages: `${serverUrl}/app-manager-dashboard/storages`,
+    updateStorages: `${serverUrl}/app-manager-dashboard/storages`,
+    getCashback: `${serverUrl}/dashboard/cashback`,
   },
   users: {
     getAllUsers: `${serverUrl}/users`,
     getUserProfile: `${serverUrl}/users`,
+    getUsersProfiles:`${serverUrl}/dashboard/users/profile`,
     getUsersWallets: `${serverUrl}/dashboard/users/usersWallets`,
     getUserWallets: `${serverUrl}/dashboard/users/userWallets`,
     updateUserWallets: `${serverUrl}/dashboard/users/userWallets`,
-    updateRole:`${serverUrl}/dashboard/users/:id/role`
+    updateRole: `${serverUrl}/dashboard/users/:id/role`,
   },
   categories: {
     mainCategories: {
-      createMainCategory:`${serverUrl}/categories/dashboard/main`,
+      createMainCategory: `${serverUrl}/categories/dashboard/main`,
       getallMainCategories: `${serverUrl}/categories/main/nested-subcategories`,
-      updateMainCategory:`${serverUrl}/categories/main`
+      updateMainCategory: `${serverUrl}/categories/main`,
     },
     subCategories: {
-      createSubCategory:`${serverUrl}/categories/dashboard/subcategories`,
+      createSubCategory: `${serverUrl}/categories/dashboard/subcategories`,
       updateSubCategory: `${serverUrl}/categories/dashboard/subcategories`,
     },
   },

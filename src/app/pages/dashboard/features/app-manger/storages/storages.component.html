@@ -1,0 +1,6 @@
+<feature-title>Storages</feature-title>
+<app-dynamic-form
+  class="primary"
+  (onSubmit)="onSubmit($event)"
+  [entries]="appMangerServ.Storages | async | entites"
+></app-dynamic-form>

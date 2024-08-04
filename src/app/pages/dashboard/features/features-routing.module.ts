@@ -5,6 +5,7 @@ import { IndexComponent } from './index/index.component';
 const users = () => import('./users/users.module').then((m) => m.UsersModule);
 const categories = () =>
   import('./categories/categories.module').then((m) => m.CategoriesModule);
+const appManger=()=>import('./app-manger/app-manger.module').then(m=>m.AppMangerModule)
 const routes: Routes = [
   {
     path: '',
@@ -12,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'appManger',
-    component: AppMangerComponent,
+    loadChildren:appManger,
   },
   {
     path: 'users',

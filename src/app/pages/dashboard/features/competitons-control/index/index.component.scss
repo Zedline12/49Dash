@@ -1,0 +1,70 @@
+.proflePic {
+    width: 5px;
+    border-radius: 50%;
+  }
+  .name {
+  }
+  .email {
+    word-break: break-all;
+  }
+  h6 {
+    font-size: 0.8em;
+  }
+  @media (min-width: 1200px) {
+    .email {
+      max-width: 300px !important;
+    }
+    //to get some space after email goes down with full width
+  }
+  @media (max-width: 1200px) and (min-width: 576px) {
+    .email-column {
+      margin-top: 10%;
+    }
+  }
+  //pic-left,name-right,email-phone:rows
+  @media (max-width: 768px) {
+    .proflePic {
+      width: 60% !important;
+    }
+    .phone-column {
+      margin-top: 2em;
+    }
+    .email-column {
+      margin-top: 1em;
+    }
+    //fonts
+  
+    .name-column {
+      margin-top: 2em;
+    }
+    .email {
+      font-size: 1.3em !important;
+    }
+    .phone {
+      font-size: 1.3em !important;
+    }
+  }
+  //everything is in diffrent rows
+  @media (max-width: 576px) {
+    .proflePic {
+      width: 7em !important;
+    }
+    .email-column {
+      margin-top: 0px !important;
+    }
+    .phone-column {
+      margin-top: 1em !important;
+    }
+    //fonts
+  
+    .name-column {
+      margin-top: 2em;
+    }
+    .email {
+      font-size: 1.2em !important;
+    }
+    .phone {
+      font-size: 1.2em !important;
+    }
+  }
+  

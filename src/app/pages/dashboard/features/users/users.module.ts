@@ -7,6 +7,6 @@ import { SharedFeatureModule } from '../shared/shared-feature.module';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, UsersRoutingModule, SharedFeatureModule],
+  imports: [CommonModule, UsersRoutingModule, SharedFeatureModule,SharedFeatureModule],
 })
 export class UsersModule {}

@@ -10,6 +10,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AppMangerService implements OnDestroy {
   AppManger: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  Storages: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  Cashbacks: BehaviorSubject<any> = new BehaviorSubject<any>([]);
   constructor(
     private http: HttpClient,
     private httpService: HttpService,
@@ -22,7 +24,22 @@ export class AppMangerService implements OnDestroy {
         this.AppManger.next(new SuccessResponse(res).data());
       })).subscribe()
   }
-
+  async getCashBacks() {
+    await this.httpService.get(apiEndPoints.appManger.getCashback).pipe(tap((res) => {
+       this.Cashbacks.next(new SuccessResponse(res).data());
+     })).subscribe()
+  }
+  async getStorages() {
+    await this.httpService.get(apiEndPoints.appManger.getStorages).pipe(tap((res) => {
+       console.log(new SuccessResponse(res).data())
+       this.Storages.next(new SuccessResponse(res).data()[0]);
+     })).subscribe()
+  }
+  async updateStorages(body:any) {
+    await this.httpService.post(apiEndPoints.appManger.getStorages,body).pipe(tap((res) => {
+      this.tostr.success('Storage updated successfully');
+     })).subscribe()
+   }
   async updateAppManger(appManger: any) {
     const AppManger = await this.httpService
       .put(apiEndPoints.appManger.updateAppManger, appManger)

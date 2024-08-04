@@ -12,6 +12,7 @@ export class UserService implements OnDestroy {
   constructor(private http: HttpService) {}
   users: BehaviorSubject<IUserCard[]> = new BehaviorSubject<IUserCard[]>([]);
   userProfile: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  UsersProfiles: BehaviorSubject<any> = new BehaviorSubject<any>([]);
   private getAllUsersSubscription!: Subscription;
   private getUserProfileSubscription!: Subscription;
   getAllUsersService(): void {
@@ -35,6 +36,16 @@ export class UserService implements OnDestroy {
       )
       .subscribe();
   }
+   getUsersProfiles(): void {
+     this.http
+       .get(apiEndPoints.users.getUsersProfiles)
+       .pipe(
+         tap((users) => {
+           this.UsersProfiles.next(new SuccessResponse(users).data()); // Push fetched data to subscribers
+         })
+       )
+       .subscribe();
+   }
   ngOnDestroy(): void {
     this.getAllUsersSubscription.unsubscribe();
     this.getUserProfileSubscription.unsubscribe();
