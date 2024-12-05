@@ -1,17 +1,8 @@
-$primary: #0d0f26;
-$secondary: #c42b35;
-$background: #dcdfe3;
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@483&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-
-.header {
-  font-family: "Oswald", sans-serif;
-}
-.header-fade{
-    font-family: "Bebas Neue", sans-serif;
-    opacity: 0.9;
-}
-.bold{
-  font-family: "Rubik", sans-serif;
+$primary: #140f2e;
+$secondary: #a400aa;
+$tertiary: #03e3fc;
+.text--gradient-transparent {
+  background: -webkit-linear-gradient($secondary, transparent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

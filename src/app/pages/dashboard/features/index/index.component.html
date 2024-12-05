@@ -1,1 +1,30 @@
 
+
+<div class="container-fluid dashboard dark-container">
+    <div class="row d-md-block d-none">
+        <h1 class="dashboard__title text-md-start text-center">Dashboard</h1>
+        <h2 class="dashboard__subheading mt-2" >This Is Your Dashboard Overview For This Month</h2>
+    </div>
+    <div class="row d-flex justify-content-between align-items-center">
+        <div class="col-6">
+            <h2 class="balance text-md-start text-center">$1,089.254<span class="balance__decimal">,24</span></h2>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+         <div class="dashboard__orders-button">
+            <div class="d-flex flex-row">
+                <i class="bi bi-box-seam"></i>
+                <h2 class="dashboard__orders-button-title">Orders</h2>
+            </div>
+         </div>
+        </div>
+        <div class="col-12 mt-2">
+            <h3 class="information text-md-start text-center"  >Last Transaction You Have Earned <span class="information__money">+${{homePageData.data.lastTransaction.amount_received}}</span> on {{homePageData.data.lastTransaction.created_at}}</h3>
+        </div>
+    </div>
+    <div class="row ">
+        <dashboard-cards></dashboard-cards>
+    <div class="row">
+        <dashboard-earning-review></dashboard-earning-review>
+    </div>
+    </div>
+</div>

@@ -1,177 +1,41 @@
-<nav
-  id="main-navbar"
-  class="navbar d-block navbar-expand-md navbar-light bg-white fixed-top"
->
-  <!-- Container wrapper -->
-  <div class="container-fluid">
-    <!-- Toggle button -->
-    <nav class="navbar navbar-expand-lg bg-white ">
-      <div class="container-fluid">
-        <a class="navbar-brand d-none d-sm-block" href="#">Navbar</a>
-        <button 
-          class="navbar-toggler"
-          (click)="sideBarServ.toggleSideBar()"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div  class="collapse navbar-collapse" id="navbarSupportedContent" toggle="collapse" data-target=".navbar-collapse">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-            <li class="nav-item">
-              <a class="nav-link active" [routerLink]="['/appManger']">AppManger</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/users']">Users</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " [routerLink]="['/categories']">Categories</a>
-            </li>
-          </ul>
+<div class="navbar-container container-fluid">
+  <!-- Toggle button -->
+  <div class="row d-flex align-items-center justify-content-between">
+    <div class="col-lg-6 col-sm-9 p-0 ">
+      <div class="d-flex flex-row align-items-center">
+        <div class="d-flex flex-row w-100 order-2 ms-sm-0 ms-3">
+          <input class="w-100" placeholder="Search Something..." />
+          <button class="p-0"><i class="bi bi-search"></i></button>
         </div>
+        <i
+          (click)="toggleSidebar()"
+          style="font-size: 1.5rem"
+          class="d-md-none d-block  bi bi-list order-1"
+        ></i>
       </div>
-    </nav>
-    <!-- Brand -->
+    </div>
+    <div class="col-lg-2 col-sm-3 d-sm-block d-none">
+      <div class="d-flex flex-row justify-content-around align-items-center">
+        <div style="position: relative" class="notification">
+          <i class="navbar-icon bi bi-bell-fill"></i>
+          <span
+            style="position: absolute; top: 0; left: 10px; font-size: 0.6rem"
+            class="badge rounded-pill badge-notification bg-danger"
+            >1</span
+          >
+        </div>
 
-    <!-- Search form -->
+        <i class="navbar-icon bi bi-envelope-fill"></i>
 
-    <!-- Right links -->
-    <ul class="navbar-nav ms-auto d-flex flex-row">
-      <!-- Notification dropdown -->
-      <li class="nav-item dropdown">
-        <a
-          data-mdb-dropdown-init
-          class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow"
-          href="#"
-          id="navbarDropdownMenuLink"
-          role="button"
-          data-mdb-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <i class="fas fa-bell"></i>
-          <span class="badge rounded-pill badge-notification bg-danger">1</span>
-        </a>
-        <ul
-          class="dropdown-menu dropdown-menu-end"
-          aria-labelledby="navbarDropdownMenuLink"
-        >
-          <li><a class="dropdown-item" href="#">Some news</a></li>
-          <li><a class="dropdown-item" href="#">Another news</a></li>
-          <li>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </li>
-        </ul>
-      </li>
-
-      <!-- Icon -->
-      <li class="nav-item">
-        <a class="nav-link me-3 me-lg-0" href="#">
-          <i class="fas fa-fill-drip"></i>
-        </a>
-      </li>
-      <!-- Icon -->
-      <li class="nav-item me-3 me-lg-0">
-        <a class="nav-link" href="#">
-          <i class="fab fa-github"></i>
-        </a>
-      </li>
-
-      <!-- Icon dropdown -->
-      <li class="nav-item dropdown">
-        <a
-          data-mdb-dropdown-init
-          class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow"
-          href="#"
-          id="navbarDropdown"
-          role="button"
-          data-mdb-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <i class="united kingdom flag m-0"></i>
-        </a>
-        <ul
-          class="dropdown-menu dropdown-menu-end"
-          aria-labelledby="navbarDropdown"
-        >
-          <li>
-            <a class="dropdown-item" href="#"
-              ><i class="united kingdom flag"></i>English
-              <i class="fa fa-check text-success ms-2"></i
-            ></a>
-          </li>
-          <li>
-            <hr class="dropdown-divider" />
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"
-              ><i class="flag-poland flag"></i>Polski</a
-            >
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"
-              ><i class="flag-china flag"></i>中文</a
-            >
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"
-              ><i class="flag-japan flag"></i>日本語</a
-            >
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"
-              ><i class="flag-germany flag"></i>Deutsch</a
-            >
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"
-              ><i class="flag-france flag"></i>Français</a
-            >
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"
-              ><i class="flag-spain flag"></i>Español</a
-            >
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"
-              ><i class="flag-russia flag"></i>Русский</a
-            >
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"
-              ><i class="flag-portugal flag"></i>Português</a
-            >
-          </li>
-        </ul>
-      </li>
+        <img
+          src="assets/images/profile.jpeg"
+          class="profile"
+          alt="Avatar"
+          loading="lazy"
+        />
+      </div>
 
       <!-- Avatar -->
-      <li class="nav-item dropdown">
-        <a
-          data-mdb-dropdown-init
-          class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
-          href="#"
-          id="navbarDropdownMenuLink"
-          role="button"
-          data-mdb-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp"
-            class="rounded-circle"
-            height="22"
-            alt="Avatar"
-            loading="lazy"
-          />
-        </a>
-        <ul
-          class="dropdown-menu dropdown-menu-end"
-          aria-labelledby="navbarDropdownMenuLink"
-        >
-          <li><a class="dropdown-item" href="#">My profile</a></li>
-          <li><a class="dropdown-item" href="#">Settings</a></li>
-          <li><a class="dropdown-item" href="#">Logout</a></li>
-        </ul>
-      </li>
-    </ul>
+    </div>
   </div>
-  <!-- Container wrapper -->
-</nav>
+</div>

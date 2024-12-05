@@ -1,46 +1,211 @@
-<nav
-  [@inOutAnimation]
-  *ngIf="innerWidth > 991 || (sideBarServ.showSideBar | async)"
-  id="sidebarMenu"
-  class="sidebar"
->
-  <div class="position-sticky">
-    <div class="list-group list-group-flush mx-3 mt-5">
-      <!-- Collapse 1 -->
-      <h3 class="header text-center">Dashboard</h3>
-      <h4
-        class="header mt-5"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapseExample"
-        aria-expanded="false"
-        aria-controls="collapseExample"
-      >
-        Features
-      </h4>
-
-      <div class="collapse show" id="collapseExample">
-        <ul>
-          <li>Super Admin</li>
-          <li [routerLink]="['/users/wallets']">User Wallets</li>
-          <li [routerLink]="['/users/profiles']">User Profile</li>
-          <li [routerLink]="['/appManger']">App Manger</li>
-          <li [routerLink]="['/appManger/storages']">Storages</li>
-          <li>Payment Gateway</li>
-          <li>Home Page Control</li>
-          <li>Secuirty</li>
-          <li>Cat/SupCat Control</li>
-          <li [routerLink]="['/appManger/cashback']">Cash Back Control</li>
-          <li>Competions Control</li>
-          <li>Lucky Wheel Control</li>
-          <li>Ride Control</li>
-          <li>Lucky Wheel Control</li>
-        </ul>
+<nav [@inOutAnimation] id="sidebarMenu" class="sidebar">
+  <div class="list-group list-group-flush mx-3 d-flex justify-content-center">
+    <!-- Collapse 1 -->
+    <div class="row d-flex align-items-center justify-content-between">
+      <div class="col-sm-6">
+        <h5 class="dash-logo">FutureMinds</h5>
       </div>
-      <h5 class="mt-5" (click)="logout()">Logut</h5>
-      <!-- Collapse 1 -->
+      <div class="dashboard-icon col-sm-6 d-flex justify-content-end">
+        <i (click)="dashToggle()" class="list-trigger bi bi-list"></i>
+      </div>
+    </div>
+    <div
+      class="categories-row row mt-5 d-flex justify-content-center"
+      style="padding: 0px 15px"
+    >
+      <div class="category">
+        <h6 class="category-title">Essential Features</h6>
+        <div class="category-items">
+          <div id="analytics" class="category-item">
+            <ul>
+              <li>
+                <div class="d-flex flex-row">
+                  <i class="item-icon bi bi-clipboard-data"></i>
+                  <h6 class="item-title">Analytics</h6>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="category-item">
+            <ul>
+              <li [routerLink]="['/transactions']">
+                <div class="d-flex flex-row">
+                  
+                  <i class="item-icon bi bi-bank"></i>
+                  <h6 class="item-title">Transactions</h6>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            style="position: relative;"
+            id="contentMangement"
+            class="category-item p-0"
+          >
+            <ul>
+              <li>
+                <div
+                  data-bs-toggle="collapse"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                  class="d-flex flex-row justify-content-between align-items-center"
+                  (click)="itemToggle('contentMangement')"
+                >
+                  <div class="d-flex flex-row">
+                    <i class="item-icon bi bi-camera-reels"></i>
+                    <h6 class="item-title">Content Mangement</h6>
+                  </div>
+                  <h6 class="justify-content-end">
+                    <i class="bi bi-caret-right"></i>
+                  </h6>
+                </div>
+              </li>
+            </ul>
 
-      <!-- Collapse 2 -->
+            <div 
+              class="col-12 child-items-list  p-0"
+              id="courses"
+            >
+              <ul>
+                <li class="child-item" [routerLink]="['/courses/my-courses']">
+                  <div class="d-flex flex-row align-items-center">
+                    <div
+                      class="child-item-dot bg-white"
+                      style="
+                        position: absolute;
+                        left: 2px;
+                        border-radius: 50%;
+                        width: 5px;
+                        height: 5px;
+                      "
+                    ></div>
+                    <h6 class="child-item-title">Courses</h6>
+                  </div>
+                </li>
+                <li class="child-item" [routerLink]="['/courses/new-course']">
+                  <div class="d-flex flex-row align-items-center">
+                    <div
+                      class="child-item-dot bg-white"
+                      style="
+                        position: absolute;
+                        left: 2px;
+                        border-radius: 50%;
+                        width: 5px;
+                        height: 5px;
+                      "
+                    ></div>
+                    <h6 class="child-item-title">Add Course</h6>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="category-item-line"></div>
+          </div>
+          <div
+            style="position: relative"
+            id="communicationTools"
+            class="category-item p-0"
+          >
+            <ul>
+              <li>
+                <div
+                  data-bs-toggle="collapse"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                  class="d-flex flex-row justify-content-between align-items-center"
+                  (click)="itemToggle('communicationTools')"
+                >
+                  <div class="d-flex flex-row">
+                    <i class="item-icon bi bi-camera-reels"></i>
+                    <h6 class="item-title">Communicate Students</h6>
+                  </div>
+                  <h6 class="justify-content-end">
+                    <i class="bi bi-caret-right"></i>
+                  </h6>
+                </div>
+              </li>
+            </ul>
+            <div
+              class="col-12  child-items-list p-0"
+              id="communicationTools-childs"
+            >
+              <ul>
+                <li class="child-item" [routerLink]="['/courses/my-courses']">
+                  <div class="d-flex flex-row align-items-center">
+                    <div
+                      class="child-item-dot bg-white"
+                      style="
+                        position: absolute;
+                        left: 2px;
+                        border-radius: 50%;
+                        width: 5px;
+                        height: 5px;
+                      "
+                    ></div>
+                    <h6 class="child-item-title">Email</h6>
+                  </div>
+                </li>
+                <li class="child-item" [routerLink]="['/courses/new-course']">
+                  <div class="d-flex flex-row align-items-center">
+                    <div
+                      class="child-item-dot bg-white"
+                      style="
+                        position: absolute;
+                        left: 2px;
+                        border-radius: 50%;
+                        width: 5px;
+                        height: 5px;
+                      "
+                    ></div>
+                    <h6 class="child-item-title">Live Chat</h6>
+                  </div>
+                </li>
+                <li class="child-item" [routerLink]="['/courses/new-course']">
+                  <div class="d-flex flex-row align-items-center">
+                    <div
+                      class="child-item-dot bg-white"
+                      style="
+                        position: absolute;
+                        left: 2px;
+                        border-radius: 50%;
+                        width: 5px;
+                        height: 5px;
+                      "
+                    ></div>
+                    <h6 class="child-item-title">Feedback</h6>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="category-item-line"></div>
+          </div>
+        </div>
+      </div>
+      <div class="category">
+        <h6 class="category-title">Settings</h6>
+        <div class="category-items">
+          <ul>
+            <li class="category-item" [routerLink]="['/courses/new-course']">
+              <div class="d-flex flex-row">
+                <i class="item-icon bi bi-person-circle"></i>
+                <h6 class="item-title">Change Profile</h6>
+              </div>
+            </li>
+            <li class="category-item" [routerLink]="['/courses/new-course']">
+              <div class="d-flex flex-row">
+                <i class="item-icon bi bi-key-fill"></i>
+                <h6 class="item-title">Change Password</h6>
+              </div>
+            </li>
+            <li class="category-item" [routerLink]="['/courses/new-course']">
+              <div class="d-flex flex-row">
+                <i class="item-icon bi bi-door-open-fill"></i>
+                <h6 class="item-title">Logout</h6>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </nav>

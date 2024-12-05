@@ -33,8 +33,8 @@ export class TokenInterceptor implements HttpInterceptor {
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
-  ): Observable<HttpEvent<any>> {
-    return from(this.handle(req, next));
+  ): any {
+    return next.handle(req)
   }
 
   async handle(

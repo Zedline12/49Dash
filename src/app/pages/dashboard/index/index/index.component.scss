@@ -1,18 +1,24 @@
 @import "global";
+
 @media (min-width: 991.98px) {
   main {
     padding-left: 240px;
   }
 }
-.mainrow {
-  margin-top: 8em;
+.sidebar-mobileview-open{
+display: block !important;
+position:absolute;
+left:0;
+width:50%;
+height:100%;
+z-index:10;
 }
-
+.sidebar-mobileview-close{
+  display: none !important;
+  position:absolute;
+  }
 .secondary {
   color: $secondary;
-}
-.dashcontainer {
-  margin-left: 7em;
 }
 @media (max-width: 991px) {
   .dashcontainer {

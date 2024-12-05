@@ -1,15 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
-@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import "global";
 html,
 body {
   height: 100%;
 }
-* {
-  font-weight: bold;
-}
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: $background;
+  background-color: #140f2e;
 }
+//global styles
+
+/*typograpghy*/
+.text--gradient-transparent {
+  background: -webkit-linear-gradient($primary, transparent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/**/

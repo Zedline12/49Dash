@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { CompetitonsControlRoutingModule } from './competitons-control-routing.module';
 import { IndexComponent } from './index/index.component';
+
 
 
 @NgModule({
@@ -10,8 +9,7 @@ import { IndexComponent } from './index/index.component';
     IndexComponent
   ],
   imports: [
-    CommonModule,
-    CompetitonsControlRoutingModule
+    CommonModule
   ]
 })
-export class CompetitonsControlModule { }
+export class UserWalletModule { }

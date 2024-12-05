@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AppMangerService } from '../../../../core/services/features/appManger.service';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SideBarAnimationService } from 'app/core/services/features/animations/sidebar.service';
 
 @Component({
   selector: 'app-index',
@@ -8,9 +8,17 @@ import { Router } from '@angular/router';
   styleUrl: './index.component.scss',
 })
 export class IndexComponent implements OnInit {
-  constructor(private appMangerServ: AppMangerService,private router:Router) {}
+  constructor(private router:Router,private sideBarAnimationService: SideBarAnimationService) {}
 
- async ngOnInit() {
-    console.log(this.router.url)
+
+  innerWidth!: number;
+  ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
+    this.sideBarAnimationService.init(this.innerWidth);
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.innerWidth = window.innerWidth;
+    this.sideBarAnimationService.init(this.innerWidth);
   }
 }

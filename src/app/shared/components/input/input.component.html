@@ -1,4 +1,6 @@
-<div class="group">
-  <i class="bi bi-search"></i>
-  <input placeholder="Search" type="search" class="input" />
-</div>
+<input
+  [placeholder]="placeholder"
+  [value]="value"
+  (input)="onChange($event)"
+  class="input"
+/>

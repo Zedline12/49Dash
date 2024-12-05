@@ -1,23 +1,25 @@
-<header>
-  <dashboard-sidebar></dashboard-sidebar>
-  <dashboard-navbar></dashboard-navbar>
-  <!-- Navbar -->
-</header>
-<!--Main Navigation-->
 
 <!--Main layout-->
-<div class="dashcontainer container-fluid">
-  <div class="row mainrow d-flex justify-content-center">
-    <div class="col-lg-9 col-md-11 col-12 mb-5 justify-content-center">
-      <div class="d-flex flex-sm-row flex-column align-items-center">
-        <h1 class="dash-header header">
-          <span class="secondary">49</span>Dashboard
-        </h1>
-        <app-navigator class="app-navigator"></app-navigator>
-      </div>
+<div class="h-100 container-fluid">
+  <div class="row h-100 d-flex justify-content-center">
+    <div style="transition: 0.5s" class="sidebar-container col-md-2 col-5 d-md-block d-none sidebar-col p-0">
+      <dashboard-sidebar></dashboard-sidebar>
     </div>
-    <div class="col-lg-9 col-md-11 col-12" style="margin-top: 5em">
-      <router-outlet></router-outlet>
+    <div
+      style="transition: 0.5s"
+      class="col-md-10 col-12 content-col"
+    >
+       <div class="row">
+        <div class="col-12 p-0 ">
+          <dashboard-navbar></dashboard-navbar>
+        </div>
+        </div>
+        <div class="row d-flex justify-content-center align-items-center mt-5 mt-xl-0 " style="height:90.5%;">
+
+        <div class="col-md-10">
+          <router-outlet></router-outlet>
+        </div>
+       </div>
     </div>
   </div>
 </div>

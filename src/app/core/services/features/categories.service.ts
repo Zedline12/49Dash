@@ -10,7 +10,10 @@ import { ISubCateogry } from 'app/core/models/categories/ISubCategory';
 export namespace CategoriesService {
   @Injectable({ providedIn: 'root' })
   export class MainCategoryService implements OnDestroy {
-    constructor(private http: HttpService, private toster: ToastrService) {}
+    constructor(
+      private http: HttpService,
+      private toster: ToastrService,
+    ) {}
     public MainCategories: BehaviorSubject<any> = new BehaviorSubject<any>([]);
     //obseravbles
     private getAllCategoriesSubscription!: Subscription;
@@ -21,12 +24,12 @@ export namespace CategoriesService {
       this.createMainSubCategorySubscription = this.http
         .post(
           apiEndPoints.categories.mainCategories.createMainCategory,
-          MainCategory
+          MainCategory,
         )
         .pipe(
           tap((res) => {
             this.toster.success('MainCategory created successfully');
-          })
+          }),
         )
         .subscribe();
     }
@@ -36,9 +39,9 @@ export namespace CategoriesService {
         .pipe(
           tap((res) => {
             this.MainCategories.next(
-              new SuccessResponse(res).data().mainCategories
+              new SuccessResponse(res).data().mainCategories,
             );
-          })
+          }),
         )
         .subscribe();
     }
@@ -47,12 +50,12 @@ export namespace CategoriesService {
         .put(
           apiEndPoints.categories.mainCategories.updateMainCategory +
             `/${mainCategory._id}`,
-          mainCategory
+          mainCategory,
         )
         .pipe(
           tap((res) => {
             this.toster.success('mainCategory updated successfully');
-          })
+          }),
         )
         .subscribe();
     }
@@ -67,7 +70,10 @@ export namespace CategoriesService {
   }
   @Injectable({ providedIn: 'root' })
   export class SubCategoryService implements OnDestroy {
-    constructor(private http: HttpService, private toster: ToastrService) {}
+    constructor(
+      private http: HttpService,
+      private toster: ToastrService,
+    ) {}
     public SubCategories: BehaviorSubject<any> = new BehaviorSubject<any>([]);
     private getAllCategoriesSubscription!: Subscription;
     private updateSubCategorySubscription!: Subscription;
@@ -77,12 +83,12 @@ export namespace CategoriesService {
       this.createSubCategorySubscription = this.http
         .post(
           apiEndPoints.categories.subCategories.createSubCategory,
-          subCategory
+          subCategory,
         )
         .pipe(
           tap((res) => {
             this.toster.success('subCategory created successfully');
-          })
+          }),
         )
         .subscribe();
     }
@@ -91,12 +97,12 @@ export namespace CategoriesService {
       this.updateSubCategorySubscription = this.http
         .put(
           apiEndPoints.categories.subCategories.updateSubCategory + `/${id}`,
-          subCategory
+          subCategory,
         )
         .pipe(
           tap((res) => {
             this.toster.success('subCategory updated successfully');
-          })
+          }),
         )
         .subscribe();
     }

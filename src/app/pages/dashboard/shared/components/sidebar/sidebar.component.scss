@@ -1,33 +1,133 @@
 @import "global";
+@import "responsive.scss";
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+.dash-logo {
+  font-family: "Orbitron", sans-serif;
+}
+h6 {
+  padding: 0;
+  margin: 0;
+}
+@media(max-width:450px){
+  .item-title{
+    font-size:0.8rem !important;
+  }
+  .category-title{
+    font-size:0.9rem !important;
+  }
+  .dash-logo{
+    font-size:1.2rem !important;
+  }
+}
 .sidebar {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  padding: 58px 0 0; /* Height of navbar */
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-  width: 240px;
+  height: 100%;
+  padding: 38px 0; /* Height of navbar */
+  box-shadow:
+    0 2px 5px 0 rgb(0 0 0 / 5%),
+    0 2px 10px 0 rgb(0 0 0 / 5%);
   z-index: 600;
-  background-color: $primary;
+  background-image: linear-gradient($secondary,black);
+  transition: 0.5s;
+}
+.item-title{
+  font-size:1.1rem;
+}
+.category-item-line {
+  height: 0%;
+  border-left: 1px solid white;
+  position: absolute;
+  top: 0;
+  left: -10px;
+  opacity: 0;
+}
+.category-title,
+.item-title {
+  opacity: 0.8;
+}
+
+.child-item {
+  padding: 3px 0px;
+  height:0px;
+ 
+  margin-top:-15%;
+  position:absolute;
+  opacity:0;
+}
+.child-item:hover{
+  opacity:1 !important
+}
+.child-items-list {
+  padding: 0px 10% !important;
+ 
+  transition:1s
+}
+.list-closed{
+ height:0px;
+ 
+}
+.sidebar-closed {
+  width: 100px !important;
+  transition: 0.5s;
+}
+
+.bi-list {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.category-title {
+  font-size:1.2rem;
+  margin-top: 2rem;
+}
+.category-item {
+  margin-top: 1.5rem;
+  padding:0;
+}
+.category-title:first-child {
+  margin-top: 0;
+}
+.category {
+  margin-bottom: 3rem;
+  padding: 0px;
 }
 .list-group-item {
   background-color: $primary;
   color: white;
   border: none;
 }
-li{
+li {
+  font-size: 0.9rem;
   list-style: none;
-  padding-top:20px;
+  margin-bottom: 20px;
   cursor: pointer;
+  transition: 0.3s;
+  opacity: 0.6;
+  padding: 5px 0px;
 }
-ul{
-  margin-top:5px;
+li h6 {
+  font-weight: 600;
+}
+
+li:hover {
+  opacity: 1;
+}
+li i,
+h6 i {
+  margin-right: 10px;
+  font-size: 0.9rem;
+}
+ul {
+  margin: 0;
+  padding: 0;
 }
 .sidebar .active {
   border-radius: 5px;
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  box-shadow:
+    0 2px 5px 0 rgb(0 0 0 / 16%),
+    0 2px 10px 0 rgb(0 0 0 / 12%);
 }
-
+.hidden {
+  height: 0 !important;
+}
 .sidebar-sticky {
   top: 0;
   height: calc(100vh - 48px);
@@ -35,6 +135,7 @@ ul{
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
-*{
-  color:white;
+
+* {
+  color: white;
 }
