@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  serverUrl: 'https://benova.zeabur.app',
+  serverUrl: 'https://benova.adaptable.app',
   accessToken: 'ACCESS_TOKEN',
   refreshToken: 'REFRESH_TOKEN',
 };
