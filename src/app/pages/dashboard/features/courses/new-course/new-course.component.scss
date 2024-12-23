@@ -1,29 +1,69 @@
 @import "global";
+@import "./responsive.scss";
 /*start--form*/
 .form {
-  max-width: 40rem;
-  border: 1px solid rgb(85, 83, 105);
+  border: none;
   border-radius: 5%;
+  
 }
 .form__title {
-  font-size: clamp(1.1rem, 1vw, 2rem);
+  font-size: clamp(1.4rem, 1.8vw, 1.8rem);
   font-weight: bold;
   margin: 0px;
 }
+.form__row-bordered {
+  border-bottom: 1px solid rgb(85, 83, 105);
+}
+.form__button {
+  font-weight: bold;
+  background-color: transparent;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid rgb(85, 83, 105);
+  color: white;
+  transition: 0.5s;
+  opacity: 0.8;
+}
+.form__button:hover {
+  background-color: white;
+  color: black;
+  opacity: 1;
+}
+.form--dark {
+  color: white;
+}
+/**/
+
+/*form image uplaod section*/
 .form__image-upload {
-  padding: 60px 0px 30px 0px;
-  border-color: #13bad4;
+  padding: 70px 0px 70px 0px;
+  border: 2px dashed rgb(170, 170, 170);
   cursor: pointer;
   transition: 0.5s;
   position: relative;
+  transition:0.3s;
 }
 .form__image-upload-title {
-  font-size: 0.9rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
   opacity: 0.8;
   margin-top: 2rem;
 }
+.form__image-upload-icon {
+  font-size: clamp(2.3rem, 10vw, 4.5rem);
+  opacity: 0.7;
+}
+.image-upload__span {
+  color: $tertiary;
+}
 .form__image-viewer {
   max-width: 250px;
+}
+.form__image-upload:hover {
+   background-color: #1a133b;
+}
+/*form fields section*/
+.form__field {
+  padding: 0px;
 }
 .form__field-label {
   font-weight: 100;
@@ -31,56 +71,19 @@
   opacity: 0.6;
 }
 .form__field-input {
-  padding: 4px;
+  padding: 6px 4px;
   border-radius: 8px;
   border: 1px solid grey;
   transition: 0.5s;
-}
-.form--dark {
-  color: white;
-}
-
-.form__row-bordered {
-  border-bottom: 1px solid rgb(85, 83, 105);
 }
 .form__field-input:focus,
 .form__field-input:focus {
   border-color: $primary;
   outline: none;
 }
-.form__field-input-textarea{
-  line-height: 50px
+.form__field-input-textarea {
+  line-height: 50px;
 }
 .file-upload {
   display: none;
-}
-.bi-image-fill {
-  font-size: 4rem;
-  opacity: 0.7;
-}
-.form__button {
-  font-weight: bold;
-  background-color:transparent;
-  width: 100%;
-  padding: 8px;
-  border: 1px solid rgb(85, 83, 105);
-  color: white;
-  transition: 0.5s;
-  opacity:0.8
-}
-.form__button:hover {
-  background-color:white;
-  color: black;
-  opacity:1
-}
-video {
-  width: 100%;
-  max-height: 40vh;
-}
-.group {
-  display: flex;
-  line-height: 28px;
-  align-items: center;
-  position: relative;
-  max-width: 190px;
 }

@@ -1,25 +1,21 @@
-
-<!--Main layout-->
-<div class="h-100 container-fluid">
-  <div class="row h-100 d-flex justify-content-center">
-    <div style="transition: 0.5s" class="sidebar-container col-md-2 col-5 d-md-block d-none sidebar-col p-0">
-      <dashboard-sidebar></dashboard-sidebar>
-    </div>
+<div class="main-container container-fluid">
+  <div class="row d-flex justify-content-center">
     <div
       style="transition: 0.5s"
-      class="col-md-10 col-12 content-col"
+      class="sidebar-container col-md-2 col-5 d-md-block d-none sidebar-col p-0"
     >
-       <div class="row">
-        <div class="col-12 p-0 ">
-          <dashboard-navbar></dashboard-navbar>
-        </div>
-        </div>
-        <div class="row d-flex justify-content-center align-items-center mt-5 mt-xl-0 " style="height:90.5%;">
+      <dashboard-sidebar></dashboard-sidebar>
+    </div>
+    <div style="transition: 0.5s" class="col-md-10 col-12 content-col">
+      <div class="col-12 p-0">
+        <dashboard-navbar></dashboard-navbar>
+      </div>
 
-        <div class="col-md-10">
+      <div class="row d-flex justify-content-center">
+        <div class="content-row col-12">
           <router-outlet></router-outlet>
         </div>
-       </div>
+      </div>
     </div>
   </div>
 </div>

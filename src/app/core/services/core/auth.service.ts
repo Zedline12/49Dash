@@ -1,10 +1,8 @@
 import {
   HttpClient,
-  HttpErrorResponse,
   HttpResponse,
 } from '@angular/common/http';
 import {
-  afterNextRender,
   Inject,
   inject,
   Injectable,
@@ -12,16 +10,13 @@ import {
 } from '@angular/core';
 import {
   BehaviorSubject,
-  catchError,
   Observable,
   of,
   tap,
-  throwError,
 } from 'rxjs';
 import { apiEndPoints } from '../../constants/api.constant';
 import { SuccessResponse } from '../../classes/SuccessResponse';
 import { environment } from '../../../../environments/environment';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 @Injectable({
@@ -42,64 +37,27 @@ export class AuthService {
   login(user: {
     email: string;
     password: string;
-    fcmToken: string;
   }): Observable<any> {
-    return this.http
-      .post<any>(apiEndPoints.auth.login, user, { observe: 'response' })
-      .pipe(
-        tap((res: HttpResponse<any>) =>
-          this.doLoginUser(
-            new SuccessResponse(res).AccessToken(),
-            new SuccessResponse(res).refreshToken()
-          )
-        )
-      );
+    return this.http.post(environment.serverUrl+"/auth/login",user)
   }
-  isTokenExpired(): Promise<boolean> {
-    return Promise.resolve().then(async () => {
-      const token = (await this.getAccessToken()) ?? '';
-      const expiry = JSON.parse(atob(token.split('.')[1])).exp;
-      return Math.floor(new Date().getTime() / 1000) >= expiry;
-    });
-  }
-  refreshToken(): Observable<any> {
-    return this.http.post<any>(
-      apiEndPoints.auth.refreshToken,
-      { refreshToken: this.getRefreshToken() },
-      { observe: 'response' }
-    );
-  }
-  doLoginUser(accessToken: string, refreshToken: string) {
-    this.storeAccessToken(accessToken);
-    this.storeRefreshToken(refreshToken);
-    this.isAuthenticatedSubject.next(true);
-    this.tostr.success('Logged in successfully');
-    this.router.navigate(['/']);
-  }
+
   validateToken(): Observable<any> {
-    return this.http.get<any>(apiEndPoints.auth.tokenValidation).pipe(
-      tap((res: HttpResponse<any>) => {
-        this.isAuthenticatedSubject.next(true);
-      })
-    );
+    return this.http.post<any>(environment.serverUrl+"/auth/validate-token",{})
   }
 
   storeAccessToken(token: string) {
-    localStorage.setItem(environment.accessToken, token);
+    localStorage.setItem(environment.AccessTokenKey, token);
   }
   editAccessToken(token: string) {
-    localStorage.removeItem(environment.accessToken);
-    localStorage.setItem(environment.accessToken, token);
-  }
-  storeRefreshToken(token: string) {
-    localStorage.setItem(environment.refreshToken, token);
+    localStorage.removeItem(environment.AccessTokenKey);
+    localStorage.setItem(environment.AccessTokenKey, token);
   }
 
   getAccessToken(): string {
-    return localStorage.getItem(environment.accessToken)!;
+    return localStorage.getItem(environment.AccessTokenKey)!;
   }
   getRefreshToken(): string {
-    return localStorage.getItem(environment.accessToken)!;
+    return localStorage.getItem(environment.AccessTokenKey)!;
   }
   isUserAuthenticated() {
     return this.isAuthenticatedSubject.value;

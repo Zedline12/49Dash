@@ -1,4 +1,5 @@
 import {
+  HttpErrorResponse,
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
@@ -6,36 +7,30 @@ import {
 import { Injectable } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import {
-  finalize,
-} from 'rxjs';
+import { catchError, finalize, throwError } from 'rxjs';
 import { AuthService } from '../services/core/auth.service';
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
   constructor(
     private spinner: NgxSpinnerService,
+    private authService:AuthService,
     private toaster: ToastrService,
-    private AuthService: AuthService
-  ) {}
-  intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): any {
+  ) { }
+  
+  intercept(req: HttpRequest<any>, next: HttpHandler): any {
     this.spinner.show();
-    // if (req.url == apiEndPoints.auth.refreshToken) return next.handle(req);
-    // return next.handle(req).pipe(
-    //   map((event: HttpEvent<any>) => {
-    //     return event;
-    //   }),
-    //   catchError((error: HttpErrorResponse) => {
-    //     this.toaster.error(new ErrorResponse(error).ErrorMessage());
-    //     return throwError(error);
-    //   }),
-    return next.handle(req).pipe(
+    const authToken = this.authService.getAccessToken();
+    const authReq = req.clone({
+      headers: req.headers.set('Authorization', 'Bearer ' + authToken),
+    });
+    return next.handle(authReq).pipe(
+      catchError((error: HttpErrorResponse) => {
+        return throwError(error);
+      }),
+
       finalize(() => {
         this.spinner.hide(); // Hide spinner
-      })
-  );
+      }),
+    );
   }
-  }
-
+}

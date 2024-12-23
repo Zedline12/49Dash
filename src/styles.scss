@@ -1,12 +1,8 @@
 @import "global";
-html,
-body {
-  height: 100%;
-}
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #140f2e;
 }
 //global styles
 
@@ -17,3 +13,12 @@ body {
   -webkit-text-fill-color: transparent;
 }
 /**/
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

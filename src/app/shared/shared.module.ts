@@ -8,7 +8,7 @@ import { importProvidersFrom } from '@angular/core';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpRequestInterceptor } from '../core/interceptors/http-request.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { TokenInterceptor } from '../core/interceptors/token.interceptor';
+// import { TokenInterceptor } from '../core/interceptors/token.interceptor';
 import { SearchComponent } from './components/search/search.component';
 import { BeautyPipe } from './pipes/beauty.pipe';
 import { EntitesPipe } from './pipes/entites.pipe';
@@ -55,11 +55,11 @@ import { InputComponent } from './components/input/input.component';
   providers: [
     ModalService,
     provideHttpClient(withInterceptorsFromDi()),
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true,
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: TokenInterceptor,
+    //   multi: true,
+    // },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpRequestInterceptor,

@@ -8,7 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../core/services/core/auth.service';
 
 import { SharedModule } from '../../shared/shared.module';
-import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [LoginComponent],

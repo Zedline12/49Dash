@@ -1,7 +1,8 @@
 <div class="container-fluid">
-  <div class="row">
+  <div style="position:relative" class="row">
     <!-- Area Chart -->
-    <div class="col-xl-6 col-lg-7 _card">
+    
+    <div class="col-xl-8 _card">
       <div
         class="card__header py-3 d-flex flex-row align-items-center justify-content-between"
       >
@@ -12,17 +13,20 @@
       <div id="lineChart" class="card__line-chart"></div>
       <!-- Card Body -->
     </div>
-
-    <!-- Pie Chart -->
-    <div class="col-xl-6 col-lg-5 _card">
-      <div
-        class="card__header py-3 d-flex flex-row align-items-center justify-content-between"
-      >
-        <h2 class="card__subheading m-0 font-weight-bold p-3">
-          Students Overview
-        </h2>
+    <div class="col-xl-4 mt-xl-0 mt-5">
+      <div class="col-12 _card">
+        <div
+          class="card__header py-3 d-flex flex-row align-items-center justify-content-between"
+        >
+          <h2 class="card__subheading m-0 font-weight-bold p-3">
+            Students Overview
+          </h2>
+        </div>
+        <div class="donut-chart" id="donutChart"></div>
       </div>
-      <div class="donut-chart" id="donutChart"></div>
+     </div>
     </div>
-  </div>
+    <!-- Pie Chart -->
+    
+
 </div>

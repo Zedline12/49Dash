@@ -8,6 +8,13 @@ import { SharedModule } from './shared/shared.module';
 import { AuthGuard } from './core/guards/auth.guard';
 import { CoreModule } from './core/core.module';
 import { MatButtonModule } from '@angular/material/button';
+import { ToastrModule } from 'ngx-toastr';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+} from '@angular/common/http';
+import { TokenInterceptor } from './core/interceptors/token.interceptor';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -18,9 +25,18 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserAnimationsModule,
     CoreModule,
     MatButtonModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   exports: [BrowserModule, BrowserAnimationsModule],
-  providers: [AuthGuard],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    },
+    AuthGuard,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

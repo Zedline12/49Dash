@@ -1,8 +1,85 @@
-$primary: #140f2e;
-$secondary: #a400aa;
-$tertiary: #03e3fc;
+$primary: #100c24;
+$secondary: #19123a;
+$tertiary: #9804dd;
+$spacing: (
+  xxs: 4px,
+  xs: 8px,
+  sm: 12px,
+  md: 16px,
+  lg: 24px,
+  xl: 32px,
+  xxl: 48px,
+);
+@media (max-width: 430px) {
+  :root {
+    --rowGap2XS: 4px;
+    --rowGapXS: 8px;
+    --rowGapS: 12px;
+    --rowGapM: 16px;
+    --rowGapL: 24px;
+    --rowGapXL: 32px;
+    --rowGap2XL: 48px;
+    --rowGap3XL: 64px;
+    --rowGap4XL: 96px;
+    --rowGap5XL: 128px;
+    --rowGap6XL: 192px;
+    --rowGap7XL: 256px;
+  }
+}
+:root {
+  /*Typography*/
+  --fs--xs: clamp(0.6944rem, 0.6681rem + 0.1319vw, 0.8rem);
+  --fs--sm: clamp(0.7639rem, 0.7299rem + 0.1701vw, 0.9rem);
+  --fs--base: clamp(0.8333rem, 0.7917rem + 0.2083vw, 1rem);
+  --fs-sm: clamp(1rem, 0.9375rem + 0.3125vw, 1.25rem);
+  --fs-md: clamp(1.2rem, 1.1094rem + 0.4531vw, 1.5625rem);
+  --fs-lg: clamp(1.44rem, 1.3117rem + 0.6414vw, 1.9531rem);
+  --fs-xl: clamp(1.728rem, 1.5496rem + 0.8918vw, 2.4414rem);
+  --fs-xxl: clamp(2.0736rem, 1.8291rem + 1.2227vw, 3.0518rem);
+  --fs-xxxl: clamp(2.4883rem, 2.1567rem + 1.658vw, 3.8147rem);
+  /*Column padding*/
+  --columnPaddingNone: 0px;
+  --columnPaddingSmall: 4px;
+  --columnPaddingMedium: 8px;
+  --columnPaddingLarge: 12px;
+  --columnPaddingXLarge: 16px;
+  /**/
+  /**/
+  //row spacing
+  --rowGap2XS: 4px;
+  --rowGapXS: 8px;
+  --rowGapS: 12px;
+  --rowGapM: 16px;
+  --rowGapL: 24px;
+  --rowGapXL: 32px;
+  --rowGap2XL: 48px;
+  --rowGap3XL: 64px;
+  --rowGap4XL: 96px;
+  --rowGap5XL: 128px;
+  --rowGap6XL: 192px;
+  --rowGap7XL: 256px;
+  /**/
+  /*section spacing*/
+}
+
+/* Mixin for applying spacing */
+@mixin spacing($property, $size) {
+  #{$property}: map-get($spacing, $size);
+}
+
 .text--gradient-transparent {
   background: -webkit-linear-gradient($secondary, transparent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
 }

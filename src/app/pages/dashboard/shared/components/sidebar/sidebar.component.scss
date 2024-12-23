@@ -4,10 +4,7 @@
 .dash-logo {
   font-family: "Orbitron", sans-serif;
 }
-h6 {
-  padding: 0;
-  margin: 0;
-}
+
 @media(max-width:450px){
   .item-title{
     font-size:0.8rem !important;
@@ -20,13 +17,13 @@ h6 {
   }
 }
 .sidebar {
-  height: 100%;
+  min-height:100vh;
   padding: 38px 0; /* Height of navbar */
   box-shadow:
     0 2px 5px 0 rgb(0 0 0 / 5%),
     0 2px 10px 0 rgb(0 0 0 / 5%);
   z-index: 600;
-  background-image: linear-gradient($secondary,black);
+  background-color:$secondary;
   transition: 0.5s;
 }
 .item-title{

@@ -1,0 +1,127 @@
+@import "global";
+@import "./responsive.scss";
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+
+/**/
+.filters-list {
+  color: white;
+  margin-top: var(--rowGap3XL);
+  margin-bottom: var(--rowGapXL);
+}
+.filter:first-child {
+  padding-left: 0;
+}
+.filter {
+  font-weight: bold;
+  opacity: 0.5;
+  font-size: var(--fs--base);
+  padding: 0px var(--columnPaddingLarge);
+}
+.filter.active {
+  opacity: 1;
+  text-decoration: underline;
+  text-decoration-color: $tertiary;
+  text-underline-offset: 8px;
+}
+/*Pagination component*/
+.payments__pagination {
+  color: white;
+}
+/**/
+/*date filter*/
+.date {
+  font-weight: bold;
+  color: white;
+  background-color: #1f1644;
+  font-size: var(--fs--sm);
+  padding: 5px 10px;
+  margin: 0px 10px;
+}
+.date__icon {
+  padding-right: 5px;
+}
+/**/
+/* title componenet*/
+.title {
+  color: white;
+  font-size: var(--fs-xxxl);
+  letter-spacing: 0.1rem;
+
+  font-weight: 700;
+}
+.title__subheading {
+  font-weight: 500;
+  font-size: var(--fs-md);
+  margin-top: var(--rowGapS);
+  color: rgb(214, 214, 214);
+}
+.subheading__icon {
+  margin-left: 5px;
+}
+.title__small {
+  font-size: 1.2rem;
+}
+/**/
+/*start--table component*/
+.container-fluid {
+  overflow-x: auto;
+}
+//elements
+.table {
+  overflow: auto;
+}
+.table__icon {
+  width: 50px;
+}
+.table__status-box {
+  text-align: center;
+  color: white;
+  width: 100px;
+}
+.table--transparent .table__base-header {
+  padding: 15px 10px !important;
+  background-color: #1e1541 !important;
+}
+.table--transparent .table__header,
+.table--transparent .table__data {
+  background-color: transparent;
+  color: white;
+  padding: 20px 10px;
+  border-color: #373442;
+  font-size: var(--fs--sm);
+  min-width: 40px;
+  transition: 0.3s;
+}
+.table__body .table__row {
+  cursor: pointer;
+}
+.table__body .table__row:hover .table__data,
+.table__body .table__row:hover .table__header {
+  background-color: #1e1541 !important;
+}
+//modifiers
+.table__data--link {
+  color: cyan !important;
+  cursor: pointer;
+}
+.table__status-box--success {
+  color: limegreen;
+}
+.table__status-box--pending {
+  background-color: yellow;
+}
+.table__status-box--failed {
+  background-color: red;
+}
+/**/
+
+/*Button Component*/
+.button {
+  padding: 10px 20px;
+  border-radius: 20px 20px 20px 20px;
+  background-color: white;
+}
+.button__title {
+  padding-left: 10px;
+}
+/**/

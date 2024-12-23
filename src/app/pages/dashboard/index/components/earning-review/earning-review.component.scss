@@ -5,14 +5,20 @@
   font-style: normal;
 }
 .line-chart {
-  max-width: 580px;
   transition: 1s;
   color:white !important;
 }
 .donut-chart{
-    max-width: 580px;
   transition: 1s;
+}
+._card{
+  background-color:#1b143d ;
 }
 *{
   color:white;
+}
+@media(min-width:1270px){
+  ._card{
+    height:90%;
+  }
 }

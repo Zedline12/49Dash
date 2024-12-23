@@ -1,38 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+@import "global";
+/*Dashboared Component*/
+.dashboard__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: rgb(226, 226, 226);
+}
+.dashboard__subheading {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  color: rgb(202, 202, 202);
+}
+.dashboard--dark {
+  color: white;
+}
+/*balance card component*/
+.balance-card__title {
+  font-size: var(--fs-lg);
+}
+.balance-card__money {
+  font-size: var(--fs-xxxl);
+  margin-top: var(--rowGapXS);
+  font-family: "Oswald", sans-serif;
+  color: white;
+  letter-spacing: 0.1rem;
+}
+.balance-card__icon {
+  font-size:var(--fs-md);
+  margin-left: var(--rowGapS);
+  color: limegreen;
+}
+.balance-card__decimal {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  opacity: 0.9;
+}
+.balance-card__information {
+  margin-top: var(--rowGapXL);
+  font-size: var(--fs--base);
+  color:rgb(206, 206, 206);
+ 
+  font-weight: 300;
+}
+.information__money {
+  color: limegreen;
+  padding: 0px 5px;
+}
+/**/
+/*button component*/
+.button {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  padding: 8px 16px;
+  border-radius: 20px 20px 20px 20px;
+  background-color: white;
+   box-sizing: border-box;
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
-.dashboard__title{
-     font-size: clamp(1.5rem,3vw,2rem);
-     color:rgb(226, 226, 226);
+.button__title {
+  padding:0px  8px;
 }
-.dashboard__subheading{
-    font-size: clamp(0.8rem,1.5vw,1rem);
-    color:rgb(202, 202, 202);
+/**/
+
+.dashbaord__cards-row,.dashbaord__earnings-row{
+  margin:var(--rowGap4XL) 0px;
 }
-.balance{
-    font-size:clamp(1.8rem,3vw,2.5rem);
-    font-family: "Oswald", sans-serif;
-    color:white;
-    letter-spacing: 0.3rem;
+.dashbaord__earnings-row{
+  margin-bottom: 0;
 }
-.balance__decimal{
-    font-size:clamp(1.5rem,3vw,2.2rem);
-    opacitY:0.9;
+.dashboard__orders-button-title {
+  font-size: 1.5rem;
 }
-.dark-container{
-    color:white;
+.dashboard__orders-button-icon {
+  font-size: 1.5rem;
 }
-.information{
-    font-size: clamp(0.8rem,1.5vw,1rem);
-    color:rgb(202, 202, 202);
-}
-.information__money{
-    color:limegreen;
-   letter-spacing: 0.1rem;
-   padding:0px 5px;
-}
-.row:not(.row:first-child){
-    margin-top:6rem;
-}
-.row:first-child{
-    margin-top:2rem;
+/**/
+
+@media (max-width: 576px) {
+  .row:not(.row:first-child) {
+    padding: 40px !important;
+  }
+  .dashboard__balance-card {
+    background-color: #1c143f;
+    padding: 10px;
+  }
+  .balance-card__icon {
+    margin-left: 0.5rem;
+  }
 }

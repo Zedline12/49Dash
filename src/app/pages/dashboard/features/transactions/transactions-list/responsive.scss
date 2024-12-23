@@ -1,0 +1,21 @@
+@media (max-width: 996px) {
+  .filters-list {
+    margin-bottom: var(--rowGapL) !important;
+  }
+  .filters__dates {
+    margin-top: var(--rowGapM) !important;
+  }
+  .date:first-child {
+    margin-left: 0 !important;
+  }
+}
+@media (max-width: 576px) {
+  .table__header,
+  .table__data {
+    padding: 10px !important ;
+  }
+  .button {
+    padding: 10px !important ;
+    font-size: 0.9rem;
+  }
+}

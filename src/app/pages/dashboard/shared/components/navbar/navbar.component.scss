@@ -1,28 +1,31 @@
 @import "global";
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+* {
+  color: white;
+}
 .logo {
   font-family: "Orbitron", sans-serif;
 }
 .navbar-container {
   padding: 20px 30px;
 }
-@media(max-width:576px){
+@media (max-width: 576px) {
   .navbar-container {
     padding: 20px 30px !important;
   }
 }
 input:focus {
-  border:1px solid $primary;
+  border: 1px solid $primary;
   outline: none;
 }
-i{
-  font-size:1.3rem !important;
+i {
+  font-size: 1.3rem !important;
 }
 input {
   padding: 8px;
   border: none;
   transition: 0.5s;
-  border:1px solid white;
+  border: 1px solid white;
 }
 button {
   border: none;

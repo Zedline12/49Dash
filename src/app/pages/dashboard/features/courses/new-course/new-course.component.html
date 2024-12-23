@@ -6,11 +6,11 @@
   (change)="onFileSelected($event)"
   #fileUpload
 />
-<div class="container-sm form form--dark form--aqua-border">
-  <div class="row p-3 form__row form__row-bordered d-flex align-items-center">
-    <h1 class="form__title">COURSE CREATION FORM</h1>
-  </div>
-  <div class="form__row row d-flex justify-content-center">
+<div class="container-fluid  form form--dark form--aqua-border">
+  <h1 class="form__title">COURSE CREATION FORM</h1>
+  <hr />
+
+  <div class="form__row row d-flex justify-content-center mt-5">
     <div
       *ngIf="!thumbnailUrl.length"
       (click)="openFile()"
@@ -18,9 +18,18 @@
     >
       <div class="row">
         <div class="d-flex flex-column">
-          <i class="bi bi-image-fill d-flex justify-content-center"></i>
-          <h2 class="form__image-upload-title text-center">
-            UPLOAD YOUR THUMBNAIL HERE
+          <i
+            class="form__image-upload-icon bi bi-cloud-upload d-flex justify-content-center"
+          ></i>
+          <!--For Desktop View-->
+          <h2 class="d-sm-block d-none form__image-upload-title text-center">
+            Drag and drop, or
+            <span class="image-upload__span">browse</span> your thumbnail
+          </h2>
+          <!--For Mobile View-->
+          <h2 class="d-sm-none d-block form__image-upload-title text-center">
+            Upload Your
+            <span class="image-upload__span">Thumbnail</span>
           </h2>
         </div>
       </div>
@@ -33,38 +42,43 @@
     </div>
   </div>
 
-  <div class="row form__row">
-    <div class="col-6">
-      <div class="d-flex flex-column form__field">
-        <label class="form__field-label"
-          >Title <span class="required">*</span></label
-        >
-        <input class="form__field-input" #title />
+  <div class="row form__row mt-4 d-flex justify-content-center ">
+    <div class="row p-0">
+      <div class="form__field col-sm-6 pe-sm-4">
+        <div class="d-flex flex-column">
+          <label class="form__field-label"
+            >Title <span class="required">*</span></label
+          >
+          <input class="form__field-input" #title />
+        </div>
+      </div>
+      <div class="form__field col-sm-6 ps-sm-4 mt-sm-0 mt-3">
+        <div class="d-flex flex-column">
+          <label class="form__field-label"
+            >Price <span class="required">*</span></label
+          >
+          <input class="form__field-input" #price type="number" />
+        </div>
       </div>
     </div>
-    <div class="col-6">
-      <div class="d-flex flex-column form__field">
-        <label class="form__field-label"
-          >Price <span class="required">*</span></label
-        >
-        <input class="form__field-input" #price type="number" />
+
+    <div class="row p-0 mt-3">
+      <div class="form__field col-sm-6 pe-sm-4">
+        <div class="d-flex flex-column">
+          <label class="form__field-label">Old Price (optional)</label>
+          <input class="form__field-input" #oldPrice type="number" />
+        </div>
       </div>
     </div>
-    <div class="col-6 mt-3">
-      <div class="d-flex flex-column form__field">
-        <label class="form__field-label">Old Price (optional)</label>
-        <input class="form__field-input" #oldPrice type="number" />
-      </div>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-12">
-      <div class="d-flex flex-column field">
-        <label class="form__field-label">Product Description</label>
-        <textarea
-          class="form__field-input form__field-input-textarea"
-          #description
-        ></textarea>
+    <div class="row p-0 mt-3">
+      <div class="form__field col-12">
+        <div class="d-flex flex-column field">
+          <label class="form__field-label">Product Description</label>
+          <textarea
+            class="form__field-input form__field-input-textarea"
+            #description
+          ></textarea>
+        </div>
       </div>
     </div>
   </div>
@@ -74,7 +88,7 @@
         (click)="
           submit(title.value, price.value, description.value, oldPrice.value)
         "
-        class=" form__button"
+        class="form__button"
       >
         Submit
       </button>
