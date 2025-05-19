@@ -46,7 +46,7 @@ export class AppointmentsFileUploadComponent {
     formData.append('file', this.selectedFile);
 
     this.http
-      .post('http://localhost:3000/reservations/upload-excel', formData)
+      .post('http://localhost:3001/reservations/upload-excel', formData)
       .subscribe({
         next: () => {
           this.isLoading = false;

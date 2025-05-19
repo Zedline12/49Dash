@@ -29,7 +29,7 @@ export class AppointmentsService {
     private httpClient: HttpClient,
     private readonly webSocketService: SocketService
   ) {}
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:3001';
   getAllApointments(): Observable<any> {
     return this.httpClient.get(`${this.apiUrl}/reservations`);
   }

@@ -197,7 +197,7 @@ export class AppointmentsComponent implements OnInit {
       });
   }
   downloadExcel() {
-    window.location.href = 'http://localhost:3000/reservations/export';
+    window.location.href = 'http://localhost:3001/reservations/export';
     // this.appointmentsService.downloadExcel().subscribe((e) => {
 
     // })

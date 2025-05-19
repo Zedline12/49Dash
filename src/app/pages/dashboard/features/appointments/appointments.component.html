@@ -89,7 +89,7 @@
   </div>
   <div
       *ngFor="let appointment of errorAppointments; let i = index;let isLast = last;"
-      class="row data-row d-flex align-items-center" style="background-color:transparent"
+      class="row data-row d-flex align-items-center" style="background-color:rgb(0, 0, 0);color:white !important;"
     >
       <div class="col-2">
         <h5 style="" class="email-text">{{ appointment.email }}</h5>
@@ -123,9 +123,7 @@
       <div class="col">
         <h5>
           {{
-            appointment.reservationDate
-              ? (appointment.reservationDate | date : "yyyy-MM-dd")
-              : "Automatic"
+           (appointment.reservationDate | date : "yyyy-MM-dd")
           }}
         </h5>
       </div>
@@ -156,7 +154,7 @@
       }"   
     >
     <div
-      *ngFor="let appointment of chunk.data; let i = index;let isLast = last;"
+      *ngFor="let appointment of chunk.data; let i = index;let isFirst = first;"
       class="row data-row d-flex align-items-center" style="background-color:transparent"
     >
       <div class="col-2">
@@ -191,9 +189,7 @@
       <div class="col">
         <h5>
           {{
-            appointment.reservationDate
-              ? (appointment.reservationDate | date : "yyyy-MM-dd")
-              : "Automatic"
+           (appointment.reservationDate | date : "yyyy-MM-dd")
           }}
         </h5>
       </div>
@@ -209,7 +205,7 @@
 
       <div style="cursor: pointer" class="col">
         <div class="d-flex flex-row align-items-between">
-          <form *ngIf="isLast"    class="ms-5">
+          <form *ngIf="isFirst"    class="ms-5">
             <input
             #interval
             (keydown.enter)="submitChunkInterval(chunk._id,interval.value)"
