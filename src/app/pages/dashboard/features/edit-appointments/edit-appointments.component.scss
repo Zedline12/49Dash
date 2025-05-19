@@ -1,0 +1,52 @@
+.table {
+  direction: rtl;
+
+  th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+  }
+}
+.cdk-overlay-container {
+  z-index: 1000 !important;
+}
+::ng-deep { .cdk-global-overlay-wrapper, .cdk-overlay-container { z-index: 9999!important; } }
+.reservation-row {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.modal {
+  direction: rtl;
+
+  .modal-content {
+    border-radius: 10px;
+  }
+
+  .modal-header {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .modal-footer {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .btn-close {
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  .form-label {
+    font-weight: 500;
+  }
+
+  input:disabled {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+  }
+}

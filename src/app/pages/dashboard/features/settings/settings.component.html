@@ -1,0 +1,184 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center mb-4">الإعدادات</h2>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="settings-card">
+        <h4 class="text-center mb-4">أنواع البعثات</h4>
+        <div style="max-height: 400px !important; overflow-y: auto; " class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr class="add-row" (click)="openAddModal(true)">
+                <td colspan="2" class="text-center">
+                  <i
+                    class="bi bi-plus-circle-fill text-primary"
+                    style="font-size: 1.5rem"
+                  ></i>
+                </td>
+              </tr>
+              <tr *ngFor="let type of scholarshipTypes">
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="type.value"
+                    (change)="onInputChange(type, true)"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    class="form-control"
+                    [(ngModel)]="type.id"
+                    (change)="onInputChange(type, true)"
+                  />
+                </td>
+                <td class="text-end" style="width: 50px">
+                  <i
+                    class="bi bi-trash-fill text-danger"
+                    style="cursor: pointer"
+                    (click)="onDelete(type, true)"
+                  ></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="settings-card">
+        <h4 class="text-center mb-4">خيارات جواز السفر</h4>
+        <div style="max-height: 400px !important; overflow-y: auto; " class="table-responsive">
+          <table  class="table">
+            <tbody>
+              <tr class="add-row" (click)="openAddModal(false)">
+                <td colspan="2" class="text-center">
+                  <i
+                    class="bi bi-plus-circle-fill text-primary"
+                    style="font-size: 1.5rem"
+                  ></i>
+                </td>
+              </tr>
+              <tr *ngFor="let option of passportOptions">
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="option.value"
+                    (change)="onInputChange(option, false)"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    class="form-control"
+                    [(ngModel)]="option.id"
+                    (change)="onInputChange(option, false)"
+                  />
+                </td>
+                <td class="text-end" style="width: 50px">
+                  <i
+                    class="bi bi-trash-fill text-danger"
+                    style="cursor: pointer"
+                    (click)="onDelete(option, false)"
+                  ></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 d-flex justify-content-center">
+      <button class="btn btn-primary" >حفظ</button>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <form [formGroup]="proxyForm" (ngSubmit)="onProxySubmit()">
+      <div>
+        <label for="proxyUsername">Proxy Username:</label>
+        <input  id="proxyUsername" formControlName="proxyUsername" />
+        <div *ngIf="proxyForm.get('proxyUsername')?.invalid && proxyForm.get('proxyUsername')?.touched">
+          Username is required
+        </div>
+      </div>
+    
+      <div>
+        <label for="proxyPassword">Proxy Password:</label>
+        <input id="proxyPassword" type="password" formControlName="proxyPassword" />
+        <div *ngIf="proxyForm.get('proxyPassword')?.invalid && proxyForm.get('proxyPassword')?.touched">
+          Password is required
+        </div>
+      </div>
+    
+      <button type="submit" [disabled]="proxyForm.invalid">Submit</button>
+    </form>
+    
+  </div>
+
+  <!-- Add New Document Modal -->
+  <div
+    class="modal fade"
+    [class.show]="showAddModal"
+    [style.display]="showAddModal ? 'block' : 'none'"
+    tabindex="-1"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            {{
+              isEditingScholarship
+                ? "إضافة نوع بعثة جديد"
+                : "إضافة خيار جواز سفر جديد"
+            }}
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            (click)="showAddModal = false"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmitNewDocument()">
+            <div class="mb-3">
+              <label class="form-label">الاسم</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="newDocument.value"
+                name="name"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">الرقم</label>
+              <input
+                type="number"
+                class="form-control"
+                [(ngModel)]="newDocument.id"
+                name="id"
+                required
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="showAddModal = false"
+              >
+                إلغاء
+              </button>
+              <button type="submit" class="btn btn-primary">إضافة</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade show" *ngIf="showAddModal"></div>
+</div>

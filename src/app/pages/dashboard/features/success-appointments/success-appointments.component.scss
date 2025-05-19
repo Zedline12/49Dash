@@ -1,0 +1,21 @@
+@import "global";
+.titles-row {
+  background-color: $secondary;
+  color: white;
+  padding: 10px;
+}
+.data-row {
+  padding: 10px;
+
+  &:nth-child(odd) {
+    background-color: rgb(186, 196, 206);
+  }
+
+  &:nth-child(even) {
+    background-color: darken(rgb(186, 196, 206), 5%);
+  }
+}
+.email-text {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}

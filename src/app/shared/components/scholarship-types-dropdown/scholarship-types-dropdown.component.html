@@ -1,0 +1,10 @@
+<select
+  class="form-select"
+  [(ngModel)]="selectedValue"
+  (ngModelChange)="onSelectionChange($event)"
+>
+  <option value="">اختر نوع البعثة</option>
+  <option *ngFor="let type of scholarshipTypes" [value]="type.value">
+    {{ type.value }}
+  </option>
+</select>

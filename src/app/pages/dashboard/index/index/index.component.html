@@ -1,18 +1,15 @@
 <div class="main-container container-fluid">
-  <div class="row d-flex justify-content-center">
+  <div style="direction: rtl;" class="row d-flex justify-content-center">
     <div
-      style="transition: 0.5s"
+      style="transition: 0.5s;"
       class="sidebar-container col-md-2 col-5 d-md-block d-none sidebar-col p-0"
     >
       <dashboard-sidebar></dashboard-sidebar>
     </div>
     <div style="transition: 0.5s" class="col-md-10 col-12 content-col">
-      <div class="col-12 p-0">
-        <dashboard-navbar></dashboard-navbar>
-      </div>
 
       <div class="row d-flex justify-content-center">
-        <div class="content-row col-12">
+        <div  class="content-row col-12">
           <router-outlet></router-outlet>
         </div>
       </div>

@@ -14,7 +14,10 @@ import {
   HttpClient,
   HttpClientModule,
 } from '@angular/common/http';
+import { NgToastModule } from 'ng-angular-popup';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { SocketService } from './core/services/features/websockets/socket.service';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -36,6 +39,7 @@ import { TokenInterceptor } from './core/interceptors/token.interceptor';
       multi: true,
     },
     AuthGuard,
+    SocketService
   ],
   bootstrap: [AppComponent],
 })

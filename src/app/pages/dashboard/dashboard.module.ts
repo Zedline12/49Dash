@@ -16,6 +16,6 @@ import { SideBarAnimationService } from 'app/core/services/features/animations/s
     SidebarComponent,
   ],
   imports: [CommonModule, DashboardRoutingModule, RouterModule],
-  providers: [SideBarService,SideBarAnimationService],
+  providers: [SideBarService, SideBarAnimationService],
 })
 export class DashboardModule {}

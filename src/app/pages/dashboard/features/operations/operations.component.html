@@ -1,0 +1,54 @@
+<div  class="container-fluid">
+  <div class="row titles-row">
+    <div class="col-3">
+      <h5>الايميل</h5>
+    </div>
+    <div class="col-2">
+      <h5>الحالة</h5>
+    </div>
+    <div class="col">
+      <h5>البعثة الدوبلامسية</h5>
+    </div>
+    <div class="col-2">
+      <h5>الخدمة</h5>
+    </div>
+    <div class="col">
+      <h5>عدد المعاملات</h5>
+    </div>
+    <div class="col"></div>
+  </div>
+  <div *ngIf="operations.length">
+    <div  *ngFor="let operation of operations" class="row data-row d-flex align-items-center">
+      <div class="col-3">
+        <h5 style="" class="email-text">{{ operation.user.email }}</h5>
+      </div>
+      <div class="col-2">
+        <div class="d-flex flex-row align-items-center">
+          <h5 class="ms-3" style="color: rgb(0, 150, 0); font-weight: 700">
+          
+          </h5>
+          <app-progress-circle [size]="25" [totalSteps]="totalSteps" [currentStep]="currentStep"></app-progress-circle>
+        </div>
+      </div>
+      <div class="col">
+        <h5>بعثة الرياض</h5>
+      </div>
+      <div class="col-2">
+        <h5>تسجل عقاري مستعجيل</h5>
+      </div>
+      <div class="col">
+        <h5>2</h5>
+      </div>
+      <div class="col">
+        <i style="color: red; font-size: 1.2em" class="bi bi-trash-fill"></i>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!operations.length">
+          <div class="row mt-5">
+            <div class="col-12">
+              <h1 style="color:grey;" class="text-center">عفوا ليس لديك اي عمليات نشطة</h1>
+            </div>
+          </div>
+  </div>
+</div>

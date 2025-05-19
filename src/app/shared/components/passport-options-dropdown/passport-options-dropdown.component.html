@@ -1,0 +1,10 @@
+<select
+  class="form-select"
+  [(ngModel)]="selectedValue"
+  (ngModelChange)="onSelectionChange($event)"
+>
+  <option value="">اختر خيار جواز السفر</option>
+  <option *ngFor="let option of passportOptions" [value]="option.value">
+    {{ option.value }}
+  </option>
+</select>

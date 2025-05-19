@@ -1,9 +1,9 @@
 <nav [@inOutAnimation] id="sidebarMenu" class="sidebar h-100 shadow">
-  <div class="list-group list-group-flush mx-3 d-flex justify-content-center">
+  <div  class="list-group list-group-flush mx-3 d-flex justify-content-center">
     <!-- Collapse 1 -->
     <div class="row d-flex align-items-center justify-content-between">
       <div class="col-sm-6">
-        <h5 class="dash-logo">FutureMinds</h5>
+        <h5 [routerLink]="['/']" class="dash-logo">لوحة التحكم</h5>
       </div>
       <div class="dashboard-icon col-sm-6 d-flex justify-content-end">
         <i (click)="dashToggle()" class="list-trigger bi bi-list"></i>
@@ -14,30 +14,30 @@
       style="padding: 0px 15px"
     >
       <div class="category">
-        <h6 class="category-title">Essential Features</h6>
+        <h6 class="category-title">الميزات الأساسية</h6>
         <div class="category-items">
           <div id="analytics" class="category-item">
             <ul>
-              <li>
+              <li [routerLink]="['/appointments']">
                 <div class="d-flex flex-row">
+                  <h6 class="item-title">الحجوزات</h6>
                   <i class="item-icon bi bi-clipboard-data"></i>
-                  <h6 class="item-title">Analytics</h6>
                 </div>
               </li>
             </ul>
           </div>
           <div class="category-item">
             <ul>
-              <li [routerLink]="['/transactions']">
+              <li [routerLink]="['/settings']">
                 <div class="d-flex flex-row">
-                  
+                  <h6 class="item-title">الأعدادات</h6>
                   <i class="item-icon bi bi-bank"></i>
-                  <h6 class="item-title">Transactions</h6>
                 </div>
               </li>
             </ul>
           </div>
-          <div
+         
+          <!-- <div
             style="position: relative;"
             id="contentMangement"
             class="category-item p-0"
@@ -100,8 +100,8 @@
               </ul>
             </div>
             <div class="category-item-line"></div>
-          </div>
-          <div
+          </div> -->
+          <!-- <div
             style="position: relative"
             id="communicationTools"
             class="category-item p-0"
@@ -178,34 +178,10 @@
               </ul>
             </div>
             <div class="category-item-line"></div>
-          </div>
+          </div> -->
         </div>
       </div>
-      <div class="category">
-        <h6 class="category-title">Settings</h6>
-        <div class="category-items">
-          <ul>
-            <li class="category-item" [routerLink]="['/courses/new-course']">
-              <div class="d-flex flex-row">
-                <i class="item-icon bi bi-person-circle"></i>
-                <h6 class="item-title">Change Profile</h6>
-              </div>
-            </li>
-            <li class="category-item" [routerLink]="['/courses/new-course']">
-              <div class="d-flex flex-row">
-                <i class="item-icon bi bi-key-fill"></i>
-                <h6 class="item-title">Change Password</h6>
-              </div>
-            </li>
-            <li class="category-item" [routerLink]="['/courses/new-course']">
-              <div class="d-flex flex-row">
-                <i class="item-icon bi bi-door-open-fill"></i>
-                <h6 class="item-title">Logout</h6>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+     
     </div>
   </div>
 </nav>

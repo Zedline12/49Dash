@@ -1,0 +1,110 @@
+@import "global";
+.titles-row {
+  background-color: $secondary;
+  color: white;
+  padding: 10px;
+}
+.data-row {
+  padding: 10px;
+
+ 
+}
+.email-text {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.base-btn {
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  text-align: center;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+.dark-grey-button {
+  @extend .base-btn;
+  background-color: darkgoldenrod;
+  color: white;
+
+  &:hover {
+    background-color: darken(darkgoldenrod, 5%);
+  }
+}
+.dark-blue-btn {
+  @extend .base-btn;
+  background-color: #1a237e;
+  color: white;
+
+  &:hover {
+    background-color: darken(#1a237e, 5%);
+  }
+}
+.red-button {
+  
+    @extend .base-btn;
+    background-color: #be0000;
+    color: white;
+
+    &:hover {
+      background-color: darken(#be0000, 5%);
+    }
+  
+}
+.green-btn {
+  @extend .base-btn;
+  background-color: #28a745;
+  color: white;
+
+  &:hover {
+    background-color: darken(#28a745, 5%);
+  }
+}
+.dark-green-btn {
+  @extend .base-btn;
+  background-color: #008a20;
+  color: white;
+
+  &:hover {
+    background-color: darken(#008a20, 5%);
+  }
+}
+.table {
+  direction: rtl;
+
+  th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+  }
+}
+.cdk-overlay-container {
+  z-index: 1000 !important;
+}
+::ng-deep {
+  .cdk-global-overlay-wrapper,
+  .cdk-overlay-container {
+    z-index: 9999 !important;
+  }
+}
+.reservation-row {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}

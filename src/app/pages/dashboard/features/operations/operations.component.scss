@@ -1,0 +1,14 @@
+@import "global";
+.titles-row{
+  background-color: $secondary;
+  color:white;
+  padding:10px;
+}
+.data-row{
+    background-color: rgb(186, 196, 206);
+    padding:10px;
+}
+.email-text{
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}

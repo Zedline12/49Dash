@@ -5,30 +5,30 @@
     padding-left: 240px;
   }
 }
-@media (max-width: 776px) {
-  .content-row {
-    padding-left: 24px !important;
-    padding-right: 24px !important;
-    padding-top: var(--rowGap2XL) !important;
-  }
-}
-@media (max-width: 479px) {
-  .content-row {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-    padding-top: var(--rowGapXL) !important;
-  }
-}
-@media (max-width: 1200px) and (min-width: 776px) {
-  .content-row {
-    padding: var(--rowGap4XL) var(--rowGap4XL) var(--rowGap4XL) var(--rowGap4XL) !important;
-  }
-}
+// @media (max-width: 776px) {
+//   .content-row {
+//     padding-left: 24px !important;
+//     padding-right: 24px !important;
+//     padding-top: var(--rowGap2XL) !important;
+//   }
+// }
+// @media (max-width: 479px) {
+//   .content-row {
+//     padding-left: 16px !important;
+//     padding-right: 16px !important;
+//     padding-top: var(--rowGapXL) !important;
+//   }
+// }
+// @media (max-width: 1200px) and (min-width: 776px) {
+//   .content-row {
+//     padding: var(--rowGap4XL) var(--rowGap4XL) var(--rowGap4XL) var(--rowGap4XL) !important;
+//   }
+// }
 .main-container {
   background-color:$primary;
 }
 .content-row {
-  padding: var(--rowGap4XL) var(--rowGap6XL) var(--rowGap4XL) var(--rowGap6XL);
+  padding: var(--rowGap4XL) var(--rowGapXL) var(--rowGap4XL) var(--rowGapXL);
 }
 .sidebar-mobileview-open {
   display: block !important;

@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <div class="row titles-row mt-5">
+        <div class="col-2">
+          <h5>الايميل</h5>
+        </div>
+        <div class="col-2">
+            <h5>الباسورد</h5>
+        </div>
+        <div class="col-2">
+            <h5>البعثة الدوبلامسية</h5>
+          </div>
+          <div class="col-2">
+            <h5>الخدمة</h5>
+          </div>
+          <div class="col-2">
+            <h5>عدد المعاملات</h5>
+          </div>
+        <div class="col-2">
+          <h5>تاريخ الحجز</h5>
+        </div>
+      </div>
+      <div *ngIf="appointments.length">
+        <div
+          *ngFor="let appointment of appointments"
+          class="row data-row d-flex align-items-center"
+        >
+          <div class="col-2">
+            <h5  class="email-text">{{ appointment.email }}</h5>
+          </div>
+          <div class="col-2">
+            <h5>{{ appointment.password }}</h5>
+          </div>
+          
+          <div class="col-2">
+            <h5>{{ appointment.scholarshipType.value }}</h5>
+          </div>
+          <div class="col-2">
+            <h5>{{ appointment.passportOption.value }}</h5>
+          </div>
+          <div class="col-2">
+            <h5>{{ appointment.transactionsCount }}</h5>
+          </div>
+          <div class="col-2">
+            <h5>{{appointment.reservedAt}}</h5>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!appointments.length">
+        <div class="row mt-5">
+          <div class="col-12">
+            <h1 style="color: grey" class="text-center">
+              عفوا ليس لديك اي عمليات نشطة
+            </h1>
+          </div>
+        </div>
+      </div>
+</div>

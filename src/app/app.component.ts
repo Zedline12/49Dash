@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { HealthService } from './core/services/features/test.service';
+import { Subscription } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+import { NotificationService } from './core/services/features/notification.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +10,9 @@ import { HealthService } from './core/services/features/test.service';
 })
 export class AppComponent implements OnInit {
   title = '49dashboard';
-  constructor(private serv: HealthService) { }
-   ngOnInit(): void {
+ 
+  ngOnInit(): void {
     
    }
-  
- 
+
 }

@@ -1,0 +1,40 @@
+.file-upload-container {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #28a745;
+    background-color: #f1f8f1;
+  }
+
+  &.dragover {
+    border-color: #28a745;
+    background-color: #e8f5e9;
+  }
+}
+
+.modal {
+  direction: rtl;
+
+  .modal-content {
+    border-radius: 10px;
+  }
+
+  .modal-header {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .modal-footer {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .btn-close {
+    margin-right: auto;
+    margin-left: 0;
+  }
+}

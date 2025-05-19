@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div
+        class="file-upload-container"
+        (dragover)="onDragOver($event)"
+        (drop)="onFileDropped($event)"
+      >
+        <div class="text-center">
+          <i
+            class="bi bi-file-earmark-excel"
+            style="font-size: 3rem; color: #28a745"
+          ></i>
+          <h4 class="mt-3">Upload Excel File</h4>
+          <p class="text-muted">Drag and drop your Excel file here or</p>
+          <input
+            type="file"
+            class="d-none"
+            id="fileInput"
+            accept=".csv"
+            (change)="onFileSelected($event)"
+          />
+          <label for="fileInput" class="btn btn-outline-primary">
+            Choose File
+          </label>
+          <div *ngIf="selectedFile" class="mt-3">
+            <p class="text-success">
+              <i class="bi bi-check-circle-fill"></i>
+              {{ selectedFile.name }}
+            </p>
+          </div>
+          <div *ngIf="errorMessage" class="mt-3">
+            <p class="text-danger">
+              <i class="bi bi-exclamation-circle-fill"></i>
+              {{ errorMessage }}
+            </p>
+          </div>
+        </div>
+        <button
+          class="btn btn-primary mt-5 d-flex"
+          style="margin: auto; font-size: 1.5rem"
+          [disabled]="!selectedFile || isLoading"
+          (click)="onSubmit()"
+        >
+          <span *ngIf="!isLoading">Upload</span>
+          <span *ngIf="isLoading">
+            <span
+              class="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            Uploading...
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Success Modal -->
+<div
+  class="modal fade"
+  [class.show]="showSuccessModal"
+  [style.display]="showSuccessModal ? 'block' : 'none'"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">نجاح</h5>
+        <button
+          type="button"
+          class="btn-close"
+          (click)="onModalClose()"
+        ></button>
+      </div>
+      <div class="modal-body text-center">
+        <i
+          class="bi bi-check-circle-fill text-success"
+          style="font-size: 3rem"
+        ></i>
+        <h4 class="mt-3">تم رفع ملف الاكسل بنجاح</h4>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-primary" (click)="onModalClose()">
+          تم
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop fade show" *ngIf="showSuccessModal"></div>
